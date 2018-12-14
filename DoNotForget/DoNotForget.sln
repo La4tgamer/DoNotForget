@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2019
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarSystem", "CalendarSystem\CalendarSystem.csproj", "{08782D2B-909B-4667-9985-0E0AFFC9F930}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interface", "Interface\Interface.csproj", "{B4123C87-7DF7-46C9-B117-5AE1590B2E90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{08782D2B-909B-4667-9985-0E0AFFC9F930}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08782D2B-909B-4667-9985-0E0AFFC9F930}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08782D2B-909B-4667-9985-0E0AFFC9F930}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4123C87-7DF7-46C9-B117-5AE1590B2E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4123C87-7DF7-46C9-B117-5AE1590B2E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4123C87-7DF7-46C9-B117-5AE1590B2E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4123C87-7DF7-46C9-B117-5AE1590B2E90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
