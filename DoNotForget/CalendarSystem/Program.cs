@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace CalendarSystem {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("hello!");
         }
     }
 }
