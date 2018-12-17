@@ -16,34 +16,99 @@ namespace CalendarSystem {
          * 读取存档
          * 
          */
-        List<Schedule> schedules;//使用List储存所有的schedule
+        List<Schedule> allSchedules;//使用List储存所有的schedule
+        List<Schedule> todaySchedules;//当天的日程，用来判断提醒事项
         int Count { set; get; }//记录有多少个日程
 
-
-        public bool AddSchedule() {
-            return true;
+        public ScheduleService() {
+            allSchedules = new List<Schedule>();
+            todaySchedules = GetTodaySchedule();
         }
 
-        public bool ModifySchedule() {
-            return true;
+        //更新当日日程
+        public void updateTodaySchedule() {
+            todaySchedules = GetTodaySchedule();
         }
 
+        //添加日程
+        public bool AddSchedule(Schedule schedule) {
+            allSchedules.Add(schedule);
+            return true;
+        }
+        //修改日程
+        public bool ModifySchedule(int index, Schedule schedule) {
+            allSchedules[index] = schedule;
+            return true;
+        }
+        //删除日程
         public bool DeleteSchedule(int index) {
+            allSchedules.RemoveAt(index);
             return true;
         }
         public bool DeleteSchedule(Schedule schedule) {
+            allSchedules.Remove(schedule);
             return true;
         }
-
-        public bool Remind() {
-
+        //检查是否有需要提醒的日程
+        public bool CheckRemind() {
+            DateTime nowTime = DateTime.Now;//当前时间
+            //在当天的日程中寻找需要提醒的事项
+            foreach (Schedule schedule in todaySchedules) {
+                //当前时间晚于提醒时间时提醒
+                if (DateTime.Compare(schedule.Time, nowTime) <= 0) {
+                    schedule.Remind();
+                }
+                
+            }
             return true;
         }
+        //得到当天的日程list
+        public List<Schedule> GetTodaySchedule() {
+            DateTime nowTime = DateTime.Now;//当前时间
+            List<Schedule> todaySchedule = new List<Schedule>();//当日的list
+            //在当天的日程中寻找需要提醒的事项
+            foreach (Schedule schedule in allSchedules) {
+                if (schedule.Cycle.Equals("once")) {
+                    //提醒一次的
+                    //年月日都符合的挑选出来
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) == 0) {
+                        todaySchedule.Add(schedule);
+                    }
+                }
+                else if (schedule.Cycle.Equals("daily")) {
+                    //每天提醒的,不在未来的作为一个新的加入
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) <= 0) {
+                        Schedule newSchedule = new Schedule(
+                        new DateTime(nowTime.Year, nowTime.Month,
+                        nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
+                        "once", schedule.Details);
+                        todaySchedule.Add(newSchedule);
+                    }
+                }
+                else if (schedule.Cycle.Equals("weekly")) {
+                    //每周提醒的,不在未来的判断星期是否一样
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) <= 0) {
+                        if (schedule.Time.DayOfWeek == nowTime.DayOfWeek) {
+                            Schedule newSchedule = new Schedule(
+                            new DateTime(nowTime.Year, nowTime.Month,
+                            nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
+                            "once", schedule.Details);
+                            todaySchedule.Add(newSchedule);
+                        }
+                    }
+                }
 
+            }
+
+            return todaySchedule;
+        }
+
+
+        //保存数据
         public bool SaveData(string path) {
             return true;
         }
-
+        //读取保存的数据
         public bool LoadData(string path) {
             return true;
         }
