@@ -11,10 +11,12 @@ namespace CalendarSystem {
          * 具体的提醒方式
          * 提醒周期
          * 完成情况
+         * 
+         * 周期决定年月日，暂时忽略掉每周提醒的问题
          */
-        DateTime Time { set; get; }//提醒的时间
+        public DateTime Time { set; get; }//提醒的时间
         private string cycle;//周期
-        string Cycle {
+        public string Cycle {
             set {
                 switch (value) {
                     case "once":
@@ -35,7 +37,7 @@ namespace CalendarSystem {
                 return cycle;
             }
         }//提醒周期
-        string Details { set; get; }//提醒内容
+        public string Details { set; get; }//提醒内容
         bool isFinished;//是否完成,构造函数中设置未完成.
         //构造函数
         public Schedule() {
@@ -54,7 +56,7 @@ namespace CalendarSystem {
 
         //提醒
         public void Remind() {
-            Finish();
+            Finish();//设置为已提醒
             Console.WriteLine("time out");
         }
 
