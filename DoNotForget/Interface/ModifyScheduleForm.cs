@@ -46,7 +46,9 @@ namespace Interface
         }
         private void btnModify_Click(object sender, EventArgs e)
         {
-            
+            int index = lbAllSchedules.SelectedIndex;
         }
+
+        private void btnRemindCycle_Click(object sender, EventArgs e){}
     }
 }
