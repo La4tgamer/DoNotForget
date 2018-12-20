@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CalendarSystem {
-    class ScheduleService {
+    public  class ScheduleService {
         /*日程管理类
          * 储存所有的日程（当日未完成，已完成）
          * 添加新日程
@@ -16,8 +16,8 @@ namespace CalendarSystem {
          * 读取存档
          * 
          */
-        List<Schedule> allSchedules;//使用List储存所有的schedule
-        List<Schedule> todaySchedules;//当天的日程，用来判断提醒事项
+        public List<Schedule> allSchedules;//使用List储存所有的schedule
+        public List<Schedule> todaySchedules;//当天的日程，用来判断提醒事项
         List<Schedule> finishedSchedules;//当天已完成的日程
 
         int Count { set; get; }//记录有多少个日程

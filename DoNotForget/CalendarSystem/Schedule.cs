@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CalendarSystem {
-    class Schedule {
+    public class Schedule {
         /* 提醒时间
          * 提醒内容(提醒事项的主体)
          * 具体的提醒方式
@@ -73,7 +73,7 @@ namespace CalendarSystem {
         }
         //重写tostring格式为 XXX 2018年12月5日13时15分
         public override string ToString() {
-            return Details + "  " + Time.ToString("yyyy年M月d日H时mm分", DateTimeFormatInfo.InvariantInfo);
+            return Details + "\t" + Time.ToString("yyyy年M月d日H时mm分", DateTimeFormatInfo.InvariantInfo);
         }
     }
 }
