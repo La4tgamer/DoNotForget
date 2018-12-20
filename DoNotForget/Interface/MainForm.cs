@@ -12,6 +12,7 @@ using CalendarSystem;
 namespace Interface {
     public partial class MainForm : Form {
         public static ScheduleService scheduleService = new ScheduleService();   //日程管理
+        public Music bgmusic = new Music();   //背景音乐
         //刷新显示的今日日程
         private  void UpdateDisplayTodaySchedules()
         {
