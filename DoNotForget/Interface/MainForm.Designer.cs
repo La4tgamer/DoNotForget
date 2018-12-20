@@ -33,6 +33,7 @@
             this.clbTodaySchedules = new System.Windows.Forms.CheckedListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.panelMonth1 = new diyControl.PanelMonth();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.panel1.Controls.Add(this.LtodaySchedules);
             this.panel1.Controls.Add(this.clbTodaySchedules);
             this.panel1.Location = new System.Drawing.Point(725, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(341, 562);
             this.panel1.TabIndex = 0;
@@ -55,7 +56,7 @@
             this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModify.Location = new System.Drawing.Point(83, 449);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(173, 29);
             this.btnModify.TabIndex = 5;
@@ -68,7 +69,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Location = new System.Drawing.Point(83, 382);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(173, 29);
             this.btnDelete.TabIndex = 4;
@@ -81,7 +82,7 @@
             this.btnQueryAllSchedules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQueryAllSchedules.Location = new System.Drawing.Point(76, 264);
-            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4);
             this.btnQueryAllSchedules.Name = "btnQueryAllSchedules";
             this.btnQueryAllSchedules.Size = new System.Drawing.Size(195, 29);
             this.btnQueryAllSchedules.TabIndex = 3;
@@ -94,7 +95,7 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = new System.Drawing.Point(83, 326);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(173, 29);
             this.btnAdd.TabIndex = 2;
@@ -124,18 +125,27 @@
             this.clbTodaySchedules.FormattingEnabled = true;
             this.clbTodaySchedules.HorizontalScrollbar = true;
             this.clbTodaySchedules.Location = new System.Drawing.Point(0, 52);
-            this.clbTodaySchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clbTodaySchedules.Margin = new System.Windows.Forms.Padding(4);
             this.clbTodaySchedules.Name = "clbTodaySchedules";
             this.clbTodaySchedules.Size = new System.Drawing.Size(339, 164);
             this.clbTodaySchedules.TabIndex = 0;
+            // 
+            // panelMonth1
+            // 
+            this.panelMonth1.Datetime = new System.DateTime(2018, 12, 20, 22, 49, 26, 518);
+            this.panelMonth1.Location = new System.Drawing.Point(0, 0);
+            this.panelMonth1.Name = "panelMonth1";
+            this.panelMonth1.Size = new System.Drawing.Size(670, 820);
+            this.panelMonth1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(1067, 715);
+            this.Controls.Add(this.panelMonth1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Don\'t Forgrt(万年历记事软件)";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -156,6 +166,7 @@
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Timer timer1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private diyControl.PanelMonth panelMonth1;
     }
 }
 

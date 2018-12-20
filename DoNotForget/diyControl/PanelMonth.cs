@@ -85,12 +85,13 @@ namespace diyControl
 
         private void PanelMonth_MouseClick(object sender, EventArgs e)
         {
-            PMEvent?.Invoke(this, e);
+            
             PanelDay pd = (PanelDay)sender;
             pd.BackColor = System.Drawing.Color.Green;
             datetime = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, Convert.ToInt32(pd.Solar));
             dateTimePicker.Value = datetime;
             DisplayPD(datetime);
+            PMEvent?.Invoke(this, e);
         }
 
         private void PanelMonth_MouseEnter(object sender, EventArgs e)

@@ -15,10 +15,10 @@ namespace Interface {
         public Music bgmusic = new Music();   //背景音乐
         Clock MyClock = new Clock();
         //刷新显示的今日日程
-        private  void UpdateDisplayTodaySchedules()
+        private void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
             clbTodaySchedules.Items.Clear();      //首先清空所有日程
-            scheduleService.UpdateTodaySchedule();
+            scheduleService.UpdateTodaySchedule(dateTime);
             foreach (Schedule schedule in scheduleService.todaySchedules)
             {
                 clbTodaySchedules.Items.Add(schedule.ToStringShort());
@@ -30,14 +30,14 @@ namespace Interface {
             scheduleService.AddSchedule(new Schedule());
             scheduleService.AddSchedule(new Schedule());
             scheduleService.AddSchedule(new Schedule());
-            UpdateDisplayTodaySchedules();
+            UpdateDisplayTodaySchedules(DateTime.Now);
         }
         //添加日程的按钮响应时间
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddScheduleForm addScheduleForm = new AddScheduleForm();
             addScheduleForm.ShowDialog();
-            UpdateDisplayTodaySchedules();
+            UpdateDisplayTodaySchedules(panelMonth1.Datetime);
         }
         //查看所有日程的按钮响应事件
         private void btnQueryAllSchedules_Click(object sender, EventArgs e)
@@ -69,20 +69,31 @@ namespace Interface {
         {
             DeleteScheduleForm deleteScheduleForm = new DeleteScheduleForm();
             deleteScheduleForm.ShowDialog();
-            UpdateDisplayTodaySchedules();
+            UpdateDisplayTodaySchedules(panelMonth1.Datetime);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
             ModifyScheduleForm modifyScheduleForm = new ModifyScheduleForm();
             modifyScheduleForm.ShowDialog();
-            UpdateDisplayTodaySchedules();
+            UpdateDisplayTodaySchedules(panelMonth1.Datetime);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadPaint();
+            panelMonth1.PMEvent += new EventHandler(panelMonth1_Click);//注册自定义控件
+
+
         }
+        //自定义控件回调函数
+        private void panelMonth1_Click(object sender, EventArgs e) {
+            UpdateDisplayTodaySchedules(panelMonth1.Datetime);
+
+        }
+
+
+
         //时钟显示
         private void LoadPaint()
         {
