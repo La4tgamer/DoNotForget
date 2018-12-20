@@ -71,9 +71,16 @@ namespace CalendarSystem {
         public void OutDate() {
             isOutDate = true;
         }
-        //重写tostring格式为 XXX 2018年12月5日13时15分
-        public override string ToString() {
-            return Details + "\t" + Time.ToString("yyyy年M月d日H时mm分", DateTimeFormatInfo.InvariantInfo);
+        //重写tostring格式为2018年12月5日13时15分 XXX 
+        public string ToStringAll() {
+            return Time.ToString("yyyy年M月d日H时mm分", DateTimeFormatInfo.InvariantInfo)
+                + "\t" + Cycle + "\t" + Details ;
         }
+        //重写tostring格式为13时15分 XXX 
+        public string ToStringShort() {
+            return Time.ToString("H时mm分", DateTimeFormatInfo.InvariantInfo)
+                + "\t" + Details;
+        }
+
     }
 }

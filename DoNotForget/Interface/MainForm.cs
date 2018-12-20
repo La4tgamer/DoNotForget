@@ -19,7 +19,7 @@ namespace Interface {
             scheduleService.UpdateTodaySchedule();
             foreach (Schedule schedule in scheduleService.todaySchedules)
             {
-                clbTodaySchedules.Items.Add(schedule.ToString());
+                clbTodaySchedules.Items.Add(schedule.ToStringShort());
             }
         }
         public MainForm() {
@@ -57,7 +57,7 @@ namespace Interface {
             };
             foreach (Schedule schedule in scheduleService.allSchedules)
             {
-                listBox.Items.Add(schedule.ToString());
+                listBox.Items.Add(schedule.ToStringAll());
             }
             form.Controls.Add(listBox);
             form.ShowDialog();

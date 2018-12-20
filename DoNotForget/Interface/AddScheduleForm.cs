@@ -46,9 +46,18 @@ namespace Interface
             string details = "";
             foreach (RadioButton val in gbSetRemindCycle.Controls)
             { 
+                //判断选中哪个单选框然后赋值cycle
                 if (val.Checked)
                 {
-                    cycle = val.Text;
+                    if (val.Text == "定时提醒一次") {
+                        cycle = "once";
+                    }
+                    else if (val.Text == "每日提醒") {
+                        cycle = "daily";
+                    }
+                    else if (val.Text == "每周提醒") {
+                        cycle = "weekly";
+                    }
                 } 
             }
             for(int i = 0;i<rtbDetails.Lines.Count();i++)
@@ -57,8 +66,8 @@ namespace Interface
             }
             Schedule schedule = new Schedule(dtpSetRemindTime.Value, cycle, details);
             MainForm.scheduleService.AddSchedule(schedule);
-            Dispose();
             MessageBox.Show("日程添加成功");
+            Dispose();
         }
         //单击取消按钮按钮的响应事件
         private void btnCancel_Click(object sender, EventArgs e)

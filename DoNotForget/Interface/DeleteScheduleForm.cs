@@ -15,23 +15,34 @@ namespace Interface
     {
         public DeleteScheduleForm()
         {
+            StartPosition = FormStartPosition.CenterParent;  //设置弹出窗口居中
             InitializeComponent();
-            foreach (Schedule schedule in MainForm.scheduleService.allSchedules)
-            {
-                clbAllSchedules.Items.Add(schedule.ToString());
-            }
+            UpdateDisplayAllSchedules();
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            for (int i = clbAllSchedules.Items.Count - 1; i >= 0; i--)    //从后往前遍历,删除所有打勾的日程
-            {  
-                if (clbAllSchedules.GetItemChecked(i))
-                {
-                    MainForm.scheduleService.DeleteSchedule(i);              //将打勾的日程从所有日程中删除
-                    clbAllSchedules.Items.Remove(clbAllSchedules.Items[i]);
+            //for (int i = clbAllSchedules.Items.Count - 1; i >= 0; i--)    //从后往前遍历,删除所有打勾的日程
+            //{  
+            //    if (clbAllSchedules.GetItemChecked(i))
+            //    {
+            //        MainForm.scheduleService.DeleteSchedule(i);              //将打勾的日程从所有日程中删除
+            //        clbAllSchedules.Items.Remove(clbAllSchedules.Items[i]);
+            //    }
+            //}
+            List<Schedule> schedules = new List<Schedule>();//暂存引用变量
+            for (int i = 0; i < clbAllSchedules.Items.Count; i++)    
+            {
+                if (clbAllSchedules.GetItemChecked(i)) {//将打勾的日程暂时存在list中
+                    schedules.Add(MainForm.scheduleService.allSchedules[i]);
                 }
             }
+            foreach (var schedule in schedules) {//遍历删除
+                MainForm.scheduleService.DeleteSchedule(schedule);
+            }
+            UpdateDisplayAllSchedules();
+
+
         }
         //取消全选的按钮响应事件
         private void btnSelectNone_Click(object sender, EventArgs e)
@@ -48,6 +59,13 @@ namespace Interface
             for (int i = 0; i < clbAllSchedules.Items.Count; i++)
             {
                clbAllSchedules.SetItemChecked(i, true);
+            }
+        }
+        //更新
+        private void UpdateDisplayAllSchedules() {
+            clbAllSchedules.Items.Clear();
+            foreach (Schedule schedule in MainForm.scheduleService.allSchedules) {
+                clbAllSchedules.Items.Add(schedule.ToStringAll());
             }
         }
     }

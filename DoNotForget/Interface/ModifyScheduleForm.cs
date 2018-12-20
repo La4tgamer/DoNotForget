@@ -20,7 +20,7 @@ namespace Interface
             //将所有日程显示在弹出界面的 ListBox 中
             foreach (Schedule schedule in MainForm.scheduleService.allSchedules)
             {
-                lbAllSchedules.Items.Add(schedule.ToString());
+                lbAllSchedules.Items.Add(schedule.ToStringAll());
             }
             StartPosition = FormStartPosition.CenterParent;  //设置弹出窗口居中
             System.Timers.Timer timer = new System.Timers.Timer(1000);
@@ -46,9 +46,49 @@ namespace Interface
         }
         private void btnModify_Click(object sender, EventArgs e)
         {
-            int index = lbAllSchedules.SelectedIndex;
+            string cycle = "";
+            string details = "";
+            foreach (RadioButton val in gbModifyCycle.Controls) {
+                //判断选中哪个单选框然后赋值cycle
+                if (val.Checked) {
+                    if (val.Text == "定时提醒一次") {
+                        cycle = "once";
+                    }
+                    else if (val.Text == "每日提醒") {
+                        cycle = "daily";
+                    }
+                    else if (val.Text == "每周提醒") {
+                        cycle = "weekly";
+                    }
+                }
+            }
+            for (int i = 0; i < rtbModifyDetails.Lines.Count(); i++) {
+                details += rtbModifyDetails.Lines[i];
+            }
+            Schedule schedule = new Schedule(dtpModifyRemindTime.Value, cycle, details);
+            MainForm.scheduleService.ModifySchedule(lbAllSchedules.SelectedIndex, schedule);
+            MessageBox.Show("日程修改成功");
+            Dispose();
         }
 
         private void btnRemindCycle_Click(object sender, EventArgs e){}
+
+        private void lbAllSchedules_SelectedIndexChanged(object sender, EventArgs e) {
+            int index = lbAllSchedules.SelectedIndex;
+            //选中的提醒周期
+            if (MainForm.scheduleService.allSchedules[index].Cycle == "once") {
+                rbOnce.Select();
+            }
+            else if (MainForm.scheduleService.allSchedules[index].Cycle == "daily") {
+                rbDaily.Select();
+            }
+            else if (MainForm.scheduleService.allSchedules[index].Cycle == "weekly") {
+                rbWeekly.Select();
+            }
+            //选中的内容
+            rtbModifyDetails.Text = MainForm.scheduleService.allSchedules[index].Details;
+            //选中的时间
+            dtpModifyRemindTime.Value = MainForm.scheduleService.allSchedules[index].Time;
+        }
     }
 }
