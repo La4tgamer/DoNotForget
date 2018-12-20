@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Calendar.cs" />
     <Compile Include="LunarCalendar.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
