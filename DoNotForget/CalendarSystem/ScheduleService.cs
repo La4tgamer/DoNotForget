@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace CalendarSystem {
     class ScheduleService {
         /*日程管理类
-         * 储存所有的日程
+         * 储存所有的日程（当日未完成，已完成）
          * 添加新日程
          * 修改日程
          * 删除日程
@@ -18,16 +18,41 @@ namespace CalendarSystem {
          */
         List<Schedule> allSchedules;//使用List储存所有的schedule
         List<Schedule> todaySchedules;//当天的日程，用来判断提醒事项
+        List<Schedule> finishedSchedules;//当天已完成的日程
+
         int Count { set; get; }//记录有多少个日程
 
         public ScheduleService() {
             allSchedules = new List<Schedule>();
             todaySchedules = GetTodaySchedule();
+            finishedSchedules = new List<Schedule>();
         }
-
-        //更新当日日程
-        public void updateTodaySchedule() {
+        public ScheduleService(string path) {
+            allSchedules = new List<Schedule>();
+            if (!LoadData(path)) {
+                Console.WriteLine("加载数据失败");
+            }
             todaySchedules = GetTodaySchedule();
+            finishedSchedules = new List<Schedule>();
+        }
+        //更新当日日程
+        public void UpdateTodaySchedule() {
+            todaySchedules = GetTodaySchedule();
+            UpdateFinishedSchedules();//将当日已完成的日程移动到完成的list中去
+        }
+        //将今天的日程已完成的移动到已完成list
+        public bool UpdateFinishedSchedules() {
+            //将today中移动到已完成
+            for (int i = 0; i < todaySchedules.Count; i++) {
+                if (todaySchedules[i].isFinished) {
+                    finishedSchedules.Add(todaySchedules[i]);
+                }
+            }
+            //删除today中的日程
+            foreach (var schedule in finishedSchedules) {
+                todaySchedules.Remove(schedule);
+            }
+            return true;
         }
 
         //添加日程
@@ -112,5 +137,7 @@ namespace CalendarSystem {
         public bool LoadData(string path) {
             return true;
         }
+
+        
     }
 }
