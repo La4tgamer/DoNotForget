@@ -96,12 +96,20 @@ namespace diyControl
 
         private void PanelMonth_MouseEnter(object sender, EventArgs e)
         {
-
+            PanelDay pd = (PanelDay)sender;
+            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            {
+                pd.BackColor = System.Drawing.Color.DarkSeaGreen;
+            }
         }
 
         private void PanelMonth_MouseLeave(object sender, EventArgs e)
         {
-
+            PanelDay pd = (PanelDay)sender;
+            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            {
+                pd.BackColor = this.BackColor;
+            }
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
