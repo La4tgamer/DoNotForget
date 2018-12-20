@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace CalendarSystem
 {
-    class LunarCalendar
+    public class LunarCalendar
     {
         private static ChineseLunisolarCalendar ChineseCalendar = new ChineseLunisolarCalendar();
 
