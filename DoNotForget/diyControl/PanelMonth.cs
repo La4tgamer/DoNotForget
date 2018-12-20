@@ -91,7 +91,7 @@ namespace diyControl
             datetime = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, Convert.ToInt32(pd.Solar));
             dateTimePicker.Value = datetime;
             DisplayPD(datetime);
-            PMEvent?.Invoke(this, e);
+            //PMEvent?.Invoke(this, e);
         }
 
         private void PanelMonth_MouseEnter(object sender, EventArgs e)
@@ -116,6 +116,7 @@ namespace diyControl
         {
             datetime = dateTimePicker.Value;
             DisplayPD(datetime);
+            PMEvent?.Invoke(this, e);
         }
 
     }

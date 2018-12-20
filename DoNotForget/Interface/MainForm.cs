@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalendarSystem;
+using System.Globalization;
 
 namespace Interface {
     public partial class MainForm : Form {
         public static ScheduleService scheduleService = new ScheduleService();   //日程管理
         public Music bgmusic = new Music();   //背景音乐
-        Clock MyClock = new Clock();
+        Clock MyClock = new Clock();//绘画类
+        DateTime paintTime = DateTime.Now;//绘画事件的时间
+
         //刷新显示的今日日程
         private void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
@@ -82,14 +85,20 @@ namespace Interface {
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadPaint();
-            panelMonth1.PMEvent += new EventHandler(panelMonth1_Click);//注册自定义控件
+            panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
 
 
         }
         //自定义控件回调函数
-        private void panelMonth1_Click(object sender, EventArgs e) {
-            UpdateDisplayTodaySchedules(panelMonth1.Datetime);
-
+        private void panelMonth1_ValueChanged(object sender, EventArgs e) {
+            UpdateDisplayTodaySchedules(panelMonth1.Datetime);//更新日历
+            if (panelMonth1.Datetime.Date == DateTime.Now.Date) {
+                LtodaySchedules.Text = "今日日程";
+            }
+            else {
+                LtodaySchedules.Text = panelMonth1.Datetime.ToString("yyyy年M月d日", DateTimeFormatInfo.InvariantInfo)
+                + "的日程";
+            }
         }
 
 
@@ -118,9 +127,24 @@ namespace Interface {
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            MyClock.OnPaint(e);
+            MyClock.OnPaint(e, paintTime);
 
         }
 
+        private void clbTodaySchedules_SelectedIndexChanged(object sender, EventArgs e) {
+            int index = clbTodaySchedules.SelectedIndex;
+            
+            if (index >= 0) {
+                MyClock.flag = true;
+                paintTime = scheduleService.todaySchedules[index].Time;
+            }
+            else {
+                MyClock.flag = false;
+            }
+        }
+
+        private void clbTodaySchedules_MouseLeave(object sender, EventArgs e) {
+            clbTodaySchedules.SelectedIndex = -1;
+        }
     }
 }

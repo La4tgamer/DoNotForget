@@ -10,8 +10,8 @@ namespace Interface
         public Timer m_timer;
         public float m_width;
         public float m_height;
-
-        public void OnPaint(PaintEventArgs e)
+        public bool flag = false;//判断是否绘画事件时间
+        public void OnPaint(PaintEventArgs e, DateTime dateTime)
         {
             float m_radius = 50;
 
@@ -19,7 +19,7 @@ namespace Interface
             m_graphic.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             m_graphic.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             //设置坐标原点
-            m_graphic.TranslateTransform((float)(m_width * 3 / 5), (float)(m_height / 5));
+            m_graphic.TranslateTransform((float)(m_width * 4.05 / 5), (float)(m_height * 0.8 / 5));
             m_graphic.FillEllipse(new SolidBrush(Color.AliceBlue), -m_radius, -m_radius, m_radius * 2, m_radius * 2);
             //画外边框
             Pen pen = new Pen(Color.Gray, 1);
@@ -57,16 +57,19 @@ namespace Interface
             Rectangle rect = new Rectangle(-4, -4, 8, 8);
             m_graphic.FillPie(new SolidBrush(Color.Red), rect, 0, 360);
 
-            //闹钟
-            /*int minuteC = 9;
-            int hourC =10;
-            Pen pen3_1 = new Pen(Color.Black, 1.8f);
-            Pen pen3_2 = new Pen(Color.Black, 2.8f);
-            m_graphic.RotateTransform((float)(6 * minuteC));
-            m_graphic.DrawLine(pen3_1, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
-            m_graphic.RotateTransform((float)(30 * hourC));
-            m_graphic.DrawLine(pen3_2, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
-            */
+            //绘画具体时间
+            if (flag) {
+                int minuteC = dateTime.Minute;
+                int hourC = dateTime.Hour;
+                Pen pen3_1 = new Pen(Color.Black, 1.8f);
+                Pen pen3_2 = new Pen(Color.Black, 2.8f);
+                m_graphic.RotateTransform((float)(6 * minuteC));
+                m_graphic.DrawLine(pen3_1, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
+                m_graphic.RotateTransform((float)(30 * hourC));
+                m_graphic.DrawLine(pen3_2, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
+
+            }
+            
         }
     }
 }
