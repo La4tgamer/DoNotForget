@@ -13,6 +13,7 @@ namespace Interface {
     public partial class MainForm : Form {
         public static ScheduleService scheduleService = new ScheduleService();   //日程管理
         public Music bgmusic = new Music();   //背景音乐
+        Clock MyClock = new Clock();
         //刷新显示的今日日程
         private  void UpdateDisplayTodaySchedules()
         {
@@ -77,5 +78,38 @@ namespace Interface {
             modifyScheduleForm.ShowDialog();
             UpdateDisplayTodaySchedules();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadPaint();
+        }
+        //时钟显示
+        private void LoadPaint()
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+
+            MyClock.m_timer = new Timer();
+            MyClock.m_timer.Interval = 1000;
+            MyClock.m_timer.Enabled = true;
+            MyClock.m_timer.Tick += new EventHandler(timer1_Tick);
+
+            MyClock.m_width = this.ClientSize.Width;
+            MyClock.m_height = this.ClientSize.Height;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.Invalidate();
+        }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            MyClock.OnPaint(e);
+
+        }
+
     }
 }
