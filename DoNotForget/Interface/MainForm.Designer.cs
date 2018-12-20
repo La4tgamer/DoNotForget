@@ -32,6 +32,7 @@
             this.LtodaySchedules = new System.Windows.Forms.Label();
             this.clbTodaySchedules = new System.Windows.Forms.CheckedListBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,18 +44,20 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.LtodaySchedules);
             this.panel1.Controls.Add(this.clbTodaySchedules);
-            this.panel1.Location = new System.Drawing.Point(544, 0);
+            this.panel1.Location = new System.Drawing.Point(725, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(256, 450);
+            this.panel1.Size = new System.Drawing.Size(341, 562);
             this.panel1.TabIndex = 0;
             // 
             // btnModify
             // 
             this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModify.Location = new System.Drawing.Point(62, 359);
+            this.btnModify.Location = new System.Drawing.Point(83, 449);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(130, 23);
+            this.btnModify.Size = new System.Drawing.Size(173, 29);
             this.btnModify.TabIndex = 5;
             this.btnModify.Text = "修改日程";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -64,9 +67,10 @@
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.Location = new System.Drawing.Point(62, 306);
+            this.btnDelete.Location = new System.Drawing.Point(83, 382);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(130, 23);
+            this.btnDelete.Size = new System.Drawing.Size(173, 29);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "删除日程";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -76,9 +80,10 @@
             // 
             this.btnQueryAllSchedules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQueryAllSchedules.Location = new System.Drawing.Point(57, 211);
+            this.btnQueryAllSchedules.Location = new System.Drawing.Point(76, 264);
+            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQueryAllSchedules.Name = "btnQueryAllSchedules";
-            this.btnQueryAllSchedules.Size = new System.Drawing.Size(146, 23);
+            this.btnQueryAllSchedules.Size = new System.Drawing.Size(195, 29);
             this.btnQueryAllSchedules.TabIndex = 3;
             this.btnQueryAllSchedules.Text = "查看所有日程";
             this.btnQueryAllSchedules.UseVisualStyleBackColor = true;
@@ -88,9 +93,10 @@
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(62, 261);
+            this.btnAdd.Location = new System.Drawing.Point(83, 326);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(130, 23);
+            this.btnAdd.Size = new System.Drawing.Size(173, 29);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "添加日程";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             this.LtodaySchedules.AutoSize = true;
             this.LtodaySchedules.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LtodaySchedules.ForeColor = System.Drawing.Color.Blue;
-            this.LtodaySchedules.Location = new System.Drawing.Point(58, 9);
+            this.LtodaySchedules.Location = new System.Drawing.Point(77, 11);
+            this.LtodaySchedules.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LtodaySchedules.Name = "LtodaySchedules";
-            this.LtodaySchedules.Size = new System.Drawing.Size(89, 19);
+            this.LtodaySchedules.Size = new System.Drawing.Size(106, 24);
             this.LtodaySchedules.TabIndex = 1;
             this.LtodaySchedules.Text = "今日日程";
             // 
@@ -116,17 +123,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.clbTodaySchedules.FormattingEnabled = true;
             this.clbTodaySchedules.HorizontalScrollbar = true;
-            this.clbTodaySchedules.Location = new System.Drawing.Point(0, 42);
+            this.clbTodaySchedules.Location = new System.Drawing.Point(0, 52);
+            this.clbTodaySchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clbTodaySchedules.Name = "clbTodaySchedules";
-            this.clbTodaySchedules.Size = new System.Drawing.Size(255, 132);
+            this.clbTodaySchedules.Size = new System.Drawing.Size(339, 164);
             this.clbTodaySchedules.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 562);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Don\'t Forgrt(万年历记事软件)";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -146,6 +155,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Timer timer1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
