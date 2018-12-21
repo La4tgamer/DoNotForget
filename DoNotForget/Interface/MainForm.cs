@@ -146,5 +146,12 @@ namespace Interface {
         private void clbTodaySchedules_MouseLeave(object sender, EventArgs e) {
             clbTodaySchedules.SelectedIndex = -1;
         }
+
+        private void buttonMinimum_Click(object sender, EventArgs e)
+        {
+            MinimumForm mForm = new MinimumForm();
+            mForm.Show();
+            this.SetVisibleCore(false);
+        }
     }
 }

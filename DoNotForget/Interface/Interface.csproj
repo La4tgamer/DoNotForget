@@ -65,6 +65,12 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MinimumForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MinimumForm.Designer.cs">
+      <DependentUpon>MinimumForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModifyScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MinimumForm.resx">
+      <DependentUpon>MinimumForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyScheduleForm.resx">
       <DependentUpon>ModifyScheduleForm.cs</DependentUpon>
