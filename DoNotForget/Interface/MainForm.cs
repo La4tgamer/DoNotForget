@@ -16,7 +16,8 @@ namespace Interface {
         public Music bgmusic = new Music();   //背景音乐
         Clock MyClock = new Clock();//绘画类
         DateTime paintTime = DateTime.Now;//绘画事件的时间
-
+        MinimumForm mForm;//小窗口生成
+        bool winFlag = false;//判断缩小到托盘时候的状态（true大窗口，false小窗口）
         //刷新显示的今日日程
         private void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
@@ -34,6 +35,7 @@ namespace Interface {
             scheduleService.AddSchedule(new Schedule());
             scheduleService.AddSchedule(new Schedule());
             UpdateDisplayTodaySchedules(DateTime.Now);
+            mForm = new MinimumForm(this);//创建小窗口但不显示
         }
         //添加日程的按钮响应时间
         private void btnAdd_Click(object sender, EventArgs e)
@@ -147,11 +149,66 @@ namespace Interface {
             clbTodaySchedules.SelectedIndex = -1;
         }
 
+        //最小化按钮
         private void buttonMinimum_Click(object sender, EventArgs e)
         {
-            MinimumForm mForm = new MinimumForm();
-            mForm.Show();
-            this.SetVisibleCore(false);
+            mForm.Visible = true;
+            this.Visible = false;
+        }
+
+        //15s检测一次是否需要提醒
+        private void remindTimer_Tick(object sender, EventArgs e) {
+            scheduleService.CheckRemind();
+            if (scheduleService.remindSchedules.Count != 0) {
+                string detail = scheduleService.remindSchedules[0].Details;
+                scheduleService.remindSchedules.Clear();//全部删除
+
+                //最小化时气球提示
+                if (!this.Visible && !mForm.Visible) {
+                    bgmusic.SetRemindMusic();
+                    notifyIcon1.ShowBalloonTip(3000, "日程到点啦！", detail + "!!", ToolTipIcon.Info);
+                }
+                else {
+                    //非最小化弹窗
+                    bgmusic.SetMusic1();
+                    MessageBox.Show(detail + "!!");
+                    bgmusic.SetPause();
+                }
+            }
+        }
+
+        //最小化到系统托盘
+        private void MainForm_SizeChanged(object sender, EventArgs e) {
+            if (this.WindowState == FormWindowState.Minimized) {
+                this.Visible = false;
+                winFlag = true;
+            }
+        }
+        //恢复大窗口
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e) {
+            if (this.WindowState == FormWindowState.Minimized || !this.Visible || !mForm.Visible) {
+                if (winFlag) {
+                    this.Show();
+                    this.WindowState = FormWindowState.Normal;
+                }
+                else {
+                    mForm.Show();
+                }
+                
+            }
+
+        }
+
+        private void notifyIcon1_Click(object sender, EventArgs e) {
+            if (this.Visible == true) {
+                winFlag = true;
+                this.Visible = false;//大窗口消失
+
+            }
+            else if (mForm.Visible == true) {
+                winFlag = false;
+                mForm.Visible = false;//小窗口消失
+            }
         }
     }
 }

@@ -14,9 +14,12 @@ namespace Interface
 {
     public partial class MinimumForm : Form
     {
-        public MinimumForm()
+        MainForm mainForm;
+
+        public MinimumForm(MainForm mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
             UpdateDisplayTodaySchedules(DateTime.Now);
         }
         //实现便签拖拽
@@ -92,9 +95,8 @@ namespace Interface
         //便签最大化为应用
         private void buttonMaximum_Click(object sender, EventArgs e)
         {
-            MainForm mainForm = new MainForm();
             mainForm.Show();
-            this.SetVisibleCore(false);
+            this.Visible = false;
         }
         //实现便签拖拽
         private void panel1_MouseDown_1(object sender, MouseEventArgs e)
@@ -106,6 +108,10 @@ namespace Interface
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+        //可见性变化是刷新
+        private void MinimumForm_VisibleChanged(object sender, EventArgs e) {
+            UpdateDisplayTodaySchedules(DateTime.Now);
         }
     }
 }

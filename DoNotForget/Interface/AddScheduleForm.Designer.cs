@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddScheduleForm));
             this.LNowTime = new System.Windows.Forms.Label();
             this.rtbDetails = new System.Windows.Forms.RichTextBox();
             this.btnYes = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@
             // rtbDetails
             // 
             this.rtbDetails.Location = new System.Drawing.Point(133, 84);
-            this.rtbDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDetails.Name = "rtbDetails";
             this.rtbDetails.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.rtbDetails.Size = new System.Drawing.Size(408, 210);
@@ -66,7 +67,7 @@
             // 
             this.btnYes.ForeColor = System.Drawing.Color.Blue;
             this.btnYes.Location = new System.Drawing.Point(168, 532);
-            this.btnYes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnYes.Margin = new System.Windows.Forms.Padding(4);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(100, 29);
             this.btnYes.TabIndex = 3;
@@ -78,7 +79,7 @@
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
             this.btnCancel.Location = new System.Drawing.Point(409, 532);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 29);
             this.btnCancel.TabIndex = 4;
@@ -91,7 +92,7 @@
             this.rbOnce.AutoSize = true;
             this.rbOnce.Checked = true;
             this.rbOnce.Location = new System.Drawing.Point(8, 40);
-            this.rbOnce.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbOnce.Margin = new System.Windows.Forms.Padding(4);
             this.rbOnce.Name = "rbOnce";
             this.rbOnce.Size = new System.Drawing.Size(118, 19);
             this.rbOnce.TabIndex = 5;
@@ -104,7 +105,7 @@
             // 
             this.rbDaily.AutoSize = true;
             this.rbDaily.Location = new System.Drawing.Point(167, 40);
-            this.rbDaily.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbDaily.Margin = new System.Windows.Forms.Padding(4);
             this.rbDaily.Name = "rbDaily";
             this.rbDaily.Size = new System.Drawing.Size(88, 19);
             this.rbDaily.TabIndex = 6;
@@ -115,7 +116,7 @@
             // 
             this.rbWeekly.AutoSize = true;
             this.rbWeekly.Location = new System.Drawing.Point(307, 40);
-            this.rbWeekly.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rbWeekly.Margin = new System.Windows.Forms.Padding(4);
             this.rbWeekly.Name = "rbWeekly";
             this.rbWeekly.Size = new System.Drawing.Size(88, 19);
             this.rbWeekly.TabIndex = 7;
@@ -139,9 +140,9 @@
             this.gbSetRemindCycle.Controls.Add(this.rbOnce);
             this.gbSetRemindCycle.Controls.Add(this.rbWeekly);
             this.gbSetRemindCycle.Location = new System.Drawing.Point(133, 316);
-            this.gbSetRemindCycle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSetRemindCycle.Margin = new System.Windows.Forms.Padding(4);
             this.gbSetRemindCycle.Name = "gbSetRemindCycle";
-            this.gbSetRemindCycle.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbSetRemindCycle.Padding = new System.Windows.Forms.Padding(4);
             this.gbSetRemindCycle.Size = new System.Drawing.Size(409, 68);
             this.gbSetRemindCycle.TabIndex = 9;
             this.gbSetRemindCycle.TabStop = false;
@@ -162,7 +163,7 @@
             this.dtpSetRemindTime.CustomFormat = "     yyyy-MM-dd HH:mm:00";
             this.dtpSetRemindTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpSetRemindTime.Location = new System.Drawing.Point(268, 409);
-            this.dtpSetRemindTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpSetRemindTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpSetRemindTime.Name = "dtpSetRemindTime";
             this.dtpSetRemindTime.Size = new System.Drawing.Size(265, 25);
             this.dtpSetRemindTime.TabIndex = 11;
@@ -181,7 +182,8 @@
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.rtbDetails);
             this.Controls.Add(this.LNowTime);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddScheduleForm";
             this.Text = "添加新日程";
             this.gbSetRemindCycle.ResumeLayout(false);

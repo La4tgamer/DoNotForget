@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyScheduleForm));
             this.LNowTime = new System.Windows.Forms.Label();
             this.LShowNowTime = new System.Windows.Forms.Label();
             this.lbAllSchedules = new System.Windows.Forms.ListBox();
@@ -234,6 +235,7 @@
             this.ClientSize = new System.Drawing.Size(912, 576);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ModifyScheduleForm";
             this.Text = "修改日程";

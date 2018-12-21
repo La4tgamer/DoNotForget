@@ -20,6 +20,12 @@ namespace CalendarSystem
             p.PlayLooping();
         }
 
+        public void SetRemindMusic() {
+            p.SoundLocation = @".\remind.wav";
+            p.Load();
+            p.Play();
+        }
+
         public void SetMusic2()
         {
             p.SoundLocation = @".\Coldplay - Yellow.wav";
