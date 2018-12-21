@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.IO;
+using System.Xml.Serialization;
 namespace CalendarSystem {
     public  class ScheduleService {
         /*日程管理类
@@ -176,13 +177,30 @@ namespace CalendarSystem {
 
         //保存数据
         public bool SaveData(string path) {
+            try {
+                using (FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write)) {
+                    XmlSerializer xml = new XmlSerializer(allSchedules.GetType());
+                    xml.Serialize(fs, allSchedules);
+                }
+            }
+            catch {
+                return false;
+            }
             return true;
+            
         }
         //读取保存的数据
         public bool LoadData(string path) {
+            try {
+                using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read)) {
+                    XmlSerializer xml = new XmlSerializer(allSchedules.GetType());
+                    allSchedules = (List<Schedule>)xml.Deserialize(fs);
+                }
+            }
+            catch {
+                return false;
+            }
             return true;
         }
-
-        
     }
 }

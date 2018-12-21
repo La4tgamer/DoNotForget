@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CalendarSystem {
+    [Serializable]
     public class Schedule {
         /* 提醒时间
          * 提醒内容(提醒事项的主体)

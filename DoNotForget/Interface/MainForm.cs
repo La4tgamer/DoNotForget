@@ -30,10 +30,6 @@ namespace Interface {
         }
         public MainForm() {
             InitializeComponent();
-            scheduleService.AddSchedule(new Schedule());
-            scheduleService.AddSchedule(new Schedule());
-            scheduleService.AddSchedule(new Schedule());
-            scheduleService.AddSchedule(new Schedule());
             UpdateDisplayTodaySchedules(DateTime.Now);
             mForm = new MinimumForm(this);//创建小窗口但不显示
         }
@@ -86,6 +82,9 @@ namespace Interface {
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            scheduleService.LoadData("./data/schedules.xml");//读取数据
+            UpdateDisplayTodaySchedules(DateTime.Now);
+            panelMonth1.Datetime = DateTime.Now;//初始化时间
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
 
@@ -209,6 +208,10 @@ namespace Interface {
                 winFlag = false;
                 mForm.Visible = false;//小窗口消失
             }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
+            scheduleService.SaveData("./data/schedules.xml");
         }
     }
 }
