@@ -35,20 +35,24 @@
             // 
             // labelSolar
             // 
+            this.labelSolar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSolar.AutoSize = true;
             this.labelSolar.Font = new System.Drawing.Font("Calibri", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSolar.Location = new System.Drawing.Point(18, 0);
+            this.labelSolar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelSolar.Location = new System.Drawing.Point(1, 0);
             this.labelSolar.Name = "labelSolar";
-            this.labelSolar.Size = new System.Drawing.Size(55, 66);
+            this.labelSolar.Size = new System.Drawing.Size(55, 64);
             this.labelSolar.TabIndex = 0;
             this.labelSolar.Text = "1";
             this.labelSolar.Click += new System.EventHandler(this.labelSolar_Click);
             // 
             // labelLunar
             // 
+            this.labelLunar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelLunar.AutoSize = true;
             this.labelLunar.Font = new System.Drawing.Font("楷体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelLunar.Location = new System.Drawing.Point(17, 57);
+            this.labelLunar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelLunar.Location = new System.Drawing.Point(1, 57);
             this.labelLunar.Name = "labelLunar";
             this.labelLunar.Size = new System.Drawing.Size(58, 24);
             this.labelLunar.TabIndex = 1;
@@ -56,9 +60,11 @@
             // 
             // labelTerms
             // 
+            this.labelTerms.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTerms.AutoSize = true;
             this.labelTerms.Font = new System.Drawing.Font("楷体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTerms.Location = new System.Drawing.Point(17, 81);
+            this.labelTerms.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelTerms.Location = new System.Drawing.Point(1, 81);
             this.labelTerms.Name = "labelTerms";
             this.labelTerms.Size = new System.Drawing.Size(58, 24);
             this.labelTerms.TabIndex = 2;
@@ -68,12 +74,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.labelTerms);
             this.Controls.Add(this.labelLunar);
             this.Controls.Add(this.labelSolar);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "PanelDay";
-            this.Size = new System.Drawing.Size(93, 114);
+            this.Size = new System.Drawing.Size(89, 116);
             this.ResumeLayout(false);
             this.PerformLayout();
 
