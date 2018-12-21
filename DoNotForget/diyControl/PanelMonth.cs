@@ -52,16 +52,19 @@ namespace diyControl
             {
                 panelday[d] = new PanelDay();
                 panelday[d].Name = "pd" + (d + 1).ToString();
-                panelday[d].Solar = (d + 1).ToString();
+                panelday[d].Solar = MyString(d + 1);
                 panelday[d].Lunar = dt.getLunarDay(dateTimePicker.Value.Year, dateTimePicker.Value.Month, d + 1);
                 panelday[d].MouseEnter += new EventHandler(PanelMonth_MouseEnter);
                 panelday[d].MouseLeave += new EventHandler(PanelMonth_MouseLeave);
                 panelday[d].MouseClick += PanelMonth_MouseClick;
                 panelday[d].Terms = dt.terms(new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, d + 1));
+                if (DateTime.Now.Day == d + 1 && datetime.Year == DateTime.Now.Year&& datetime.Month == DateTime.Now.Month)
+                    panelday[d].BackColor = Color.Red;
                 if (datetime.Day == d + 1)
                 {
                     panelday[d].BackColor = Color.Green;
                 }
+
             }
             int index = 0;
             DateTime newtime = dateTimePicker.Value;
@@ -91,13 +94,16 @@ namespace diyControl
             datetime = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, Convert.ToInt32(pd.Solar));
             dateTimePicker.Value = datetime;
             DisplayPD(datetime);
+
             //PMEvent?.Invoke(this, e);
         }
 
         private void PanelMonth_MouseEnter(object sender, EventArgs e)
         {
             PanelDay pd = (PanelDay)sender;
-            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            if (DateTime.Now.Day == pd.date() && datetime.Year == DateTime.Now.Year && datetime.Month == DateTime.Now.Month)
+                pd.BackColor = Color.Red;
+            else if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
             {
                 pd.BackColor = System.Drawing.Color.DarkSeaGreen;
             }
@@ -106,7 +112,9 @@ namespace diyControl
         private void PanelMonth_MouseLeave(object sender, EventArgs e)
         {
             PanelDay pd = (PanelDay)sender;
-            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            if (DateTime.Now.Day == pd.date() && datetime.Year == DateTime.Now.Year && datetime.Month == DateTime.Now.Month)
+                pd.BackColor = Color.Red;
+            else if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
             {
                 pd.BackColor = this.BackColor;
             }
@@ -119,5 +127,63 @@ namespace diyControl
             PMEvent?.Invoke(this, e);
         }
 
+        private void Leftbtn_Click(object sender, EventArgs e)
+        {
+            int year = dateTimePicker.Value.Year;//当前年  
+            int month = dateTimePicker.Value.Month;//当前月  
+
+            int beforeYear = 0;
+            int beforeMonth = 0;
+            if (month <= 1)//如果当前月是一月，那么年份就要减一 
+            {
+                beforeYear = year - 1;
+                beforeMonth = 12;//上个月  
+            }
+            else
+            {
+                beforeYear = year;
+                beforeMonth = month - 1;//上个月  
+            }
+            datetime = new DateTime(beforeYear, beforeMonth, 1);
+            dateTimePicker.Value = datetime;
+            DisplayPD(datetime);
+        }
+
+        private void Rightbtn_Click(object sender, EventArgs e)
+        {
+            int year = dateTimePicker.Value.Year;//当前年  
+            int month = dateTimePicker.Value.Month;//当前月  
+
+            int afterYear = 0;
+            int afterMonth = 0;
+            if (month >= 12)//如果当前月是十二月，那么年份就要加一
+            {
+                afterYear = year + 1;
+                afterMonth = 1;//下个月  
+            }
+            else
+            {
+                afterYear = year;
+                afterMonth = month + 1;//下个月  
+            }
+            datetime = new DateTime(afterYear, afterMonth, 1);
+            dateTimePicker.Value = datetime;
+            DisplayPD(datetime);
+        }
+
+        private void Today_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            datetime = DateTime.Now;
+            dateTimePicker.Value = datetime;
+            DisplayPD(datetime);
+        }
+
+        private string MyString(int i)
+        {
+            if (i <= 9 && i > 0)
+                return " " + i;
+            else
+                return i.ToString();
+        }
     }
 }

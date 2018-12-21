@@ -77,30 +77,39 @@ namespace diyControl
             switch (myDrawingMode)
             {
                 case MyDrawingMode.Default:
-                    labelSolar.Location = new System.Drawing.Point(17, 0);
+                    labelSolar.Location = new System.Drawing.Point(5,0);
                     labelSolar.Size = new System.Drawing.Size(55, 66);
-                    labelLunar.Location = new System.Drawing.Point(17, 66);
+                    labelSolar.BackColor = Color.Transparent;
+                    labelLunar.Location = new System.Drawing.Point(12, 66);
                     labelLunar.Size = new System.Drawing.Size(58, 24);
-                    labelTerms.Location = new System.Drawing.Point(17, 90);
+                    labelLunar.BackColor = Color.Transparent;
+                    labelTerms.Location = new System.Drawing.Point(12, 90);
                     labelTerms.Size = new System.Drawing.Size(58, 24);
+                    labelTerms.BackColor = Color.Transparent;
                     labelTerms.Visible = false;
                     break;
                 case MyDrawingMode.Terms:
-                    labelSolar.Location = new System.Drawing.Point(17, 0);
+                    labelSolar.Location = new System.Drawing.Point(5, 0);
                     labelSolar.Size = new System.Drawing.Size(55, 66);
-                    labelLunar.Location = new System.Drawing.Point(17, 48);
+                    labelSolar.BackColor = Color.Transparent;
+                    labelLunar.Location = new System.Drawing.Point(12, 48);
                     labelLunar.Size = new System.Drawing.Size(58, 24);
-                    labelTerms.Location = new System.Drawing.Point(17, 70);
+                    labelLunar.BackColor = Color.Transparent;
+                    labelTerms.Location = new System.Drawing.Point(12, 70);
                     labelTerms.Size = new System.Drawing.Size(58, 24);
+                    labelTerms.BackColor = Color.Transparent;
                     labelTerms.Visible = true;
                     break;
                 default:
-                    labelSolar.Location = new System.Drawing.Point(17, 0);
+                    labelSolar.Location = new System.Drawing.Point(5, 0);
                     labelSolar.Size = new System.Drawing.Size(55, 66);
-                    labelLunar.Location = new System.Drawing.Point(17, 66);
+                    labelSolar.BackColor = Color.Transparent;
+                    labelLunar.Location = new System.Drawing.Point(12, 66);
                     labelLunar.Size = new System.Drawing.Size(58, 24);
-                    labelTerms.Location = new System.Drawing.Point(17, 90);
+                    labelLunar.BackColor = Color.Transparent;
+                    labelTerms.Location = new System.Drawing.Point(12, 90);
                     labelTerms.Size = new System.Drawing.Size(58, 24);
+                    labelTerms.BackColor = Color.Transparent;
                     labelTerms.Visible = false;
                     break;
             }
@@ -111,6 +120,11 @@ namespace diyControl
             if (strTerms == string.Empty) myDrawingMode = MyDrawingMode.Default;
             else myDrawingMode = MyDrawingMode.Terms;
             workDM();
+        }
+
+        public int date()
+        {
+            return Int32.Parse(labelSolar.Text);
         }
 
         private void labelSolar_Click(object sender, EventArgs e)
