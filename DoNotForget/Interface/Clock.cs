@@ -13,7 +13,7 @@ namespace Interface
         public bool flag = false;//判断是否绘画事件时间
         public void OnPaint(PaintEventArgs e, DateTime dateTime)
         {
-            float m_radius = 50;
+            float m_radius = 70;
 
             m_graphic = e.Graphics;
             m_graphic.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
@@ -42,11 +42,11 @@ namespace Interface
             int hour = DateTime.Now.Hour;
             //画时针
             Pen pen2 = new Pen(Color.Green, 3);
-            m_graphic.RotateTransform((float)(30 / 3600 * second + 30 / 60 * minute + hour * 30));
+            m_graphic.RotateTransform((float)(0.00833f * second + 0.5f * minute + hour * 30));
             m_graphic.DrawLine(pen2, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
             //画分针
             Pen pen1 = new Pen(Color.Blue, 2);
-            m_graphic.RotateTransform((float)((30 / 3600 * second + 30 / 60 * minute + hour * 30) * (-1)));
+            m_graphic.RotateTransform((float)((0.00833f * second + 0.5f * minute + hour * 30) * (-1)));
             m_graphic.RotateTransform((float)(0.1 * second + 6 * minute));
             m_graphic.DrawLine(pen1, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
             //画秒针
@@ -58,10 +58,10 @@ namespace Interface
             //显示具体时间
             int minuteC = dateTime.Minute;
             int hourC = dateTime.Hour;
-            Pen pen3_1 = new Pen(Color.LightBlue, 1.6f);
-            Pen pen4_1 = new Pen(Color.LightBlue, 2.5f);
-            Pen pen3_2 = new Pen(Color.LightCoral, 1.6f);
-            Pen pen4_2 = new Pen(Color.LightCoral, 2.5f);
+            Pen pen3_1 = new Pen(Color.YellowGreen, 1.6f);
+            Pen pen4_1 = new Pen(Color.YellowGreen, 2.4f);
+            Pen pen3_2 = new Pen(Color.LightBlue, 1.6f);
+            Pen pen4_2 = new Pen(Color.LightBlue, 2.4f);
             if (flag)
             {
                 if (hourC < 12)
@@ -70,7 +70,7 @@ namespace Interface
                     m_graphic.RotateTransform((float)(6 * minuteC));
                     m_graphic.DrawLine(pen3_1, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
                     m_graphic.RotateTransform((float)(-6 * minuteC));
-                    m_graphic.RotateTransform((float)(30 / 60 * minuteC + 30 * hourC));
+                    m_graphic.RotateTransform((float)(0.5f * minuteC + 30 * hourC));
                     m_graphic.DrawLine(pen4_1, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
                 }
                 else
@@ -79,7 +79,7 @@ namespace Interface
                     m_graphic.RotateTransform((float)(6 * minuteC));
                     m_graphic.DrawLine(pen3_2, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
                     m_graphic.RotateTransform((float)(-6 * minuteC));
-                    m_graphic.RotateTransform((float)(30 / 60 * minuteC + 30 * hourC));
+                    m_graphic.RotateTransform((float)(0.5f * minuteC + 30 * hourC));
                     m_graphic.DrawLine(pen4_2, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
                 }
             }
