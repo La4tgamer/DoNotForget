@@ -36,9 +36,9 @@ namespace CalendarSystem {
             finishedSchedules = new List<Schedule>();
         }
         //更新当日日程
-        public void UpdateTodaySchedule() {
-            todaySchedules = GetTodaySchedule();
-            UpdateFinishedSchedules();//将当日已完成的日程移动到完成的list中去
+        public void UpdateTodaySchedule(DateTime dateTime) {
+            todaySchedules = GetSomeDaySchedule(dateTime);
+            //UpdateFinishedSchedules();//将当日已完成的日程移动到完成的list中去
         }
         //将今天的日程已完成的移动到已完成list
         public bool UpdateFinishedSchedules() {
@@ -127,7 +127,46 @@ namespace CalendarSystem {
 
             return todaySchedule;
         }
+        //得到某天的日程list
+        public List<Schedule> GetSomeDaySchedule(DateTime dateTime) {
+            DateTime nowTime = dateTime;//这一天的时间
+            List<Schedule> todaySchedule = new List<Schedule>();//当日的list
+            //在当天的日程中寻找需要提醒的事项
+            foreach (Schedule schedule in allSchedules) {
+                if (schedule.Cycle.Equals("once")) {
+                    //提醒一次的
+                    //年月日都符合的挑选出来
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) == 0) {
+                        todaySchedule.Add(schedule);
+                    }
+                }
+                else if (schedule.Cycle.Equals("daily")) {
+                    //每天提醒的,不在未来的作为一个新的加入
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) <= 0) {
+                        Schedule newSchedule = new Schedule(
+                        new DateTime(nowTime.Year, nowTime.Month,
+                        nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
+                        "once", schedule.Details);
+                        todaySchedule.Add(newSchedule);
+                    }
+                }
+                else if (schedule.Cycle.Equals("weekly")) {
+                    //每周提醒的,不在未来的判断星期是否一样
+                    if (DateTime.Compare(schedule.Time.Date, nowTime.Date) <= 0) {
+                        if (schedule.Time.DayOfWeek == nowTime.DayOfWeek) {
+                            Schedule newSchedule = new Schedule(
+                            new DateTime(nowTime.Year, nowTime.Month,
+                            nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
+                            "once", schedule.Details);
+                            todaySchedule.Add(newSchedule);
+                        }
+                    }
+                }
 
+            }
+
+            return todaySchedule;
+        }
 
         //保存数据
         public bool SaveData(string path) {

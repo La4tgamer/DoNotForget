@@ -112,6 +112,10 @@
       <Project>{08782d2b-909b-4667-9985-0e0affc9f930}</Project>
       <Name>CalendarSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="..\diyControl\diyControl.csproj">
+      <Project>{B46CA6E9-7810-4941-8CD0-6D0D346459B7}</Project>
+      <Name>diyControl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

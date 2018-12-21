@@ -13,28 +13,28 @@ namespace CalendarSystem
         SoundPlayer p = new SoundPlayer();
         public Music() { }
 
-        public void setMusic1()
+        public void SetMusic1()
         {
-            p.SoundLocation = @"D:\GONTITI (ゴンチチ) - 見知らぬ人 [mqms].wav";
+            p.SoundLocation = @".\GONTITI (ゴンチチ) - 見知らぬ人 [mqms].wav";
             p.Load();
             p.PlayLooping();
         }
 
-        public void setMusic2()
+        public void SetMusic2()
         {
-            p.SoundLocation = @"D:\Coldplay - Yellow.wav";
+            p.SoundLocation = @".\Coldplay - Yellow.wav";
             p.Load();
             p.PlayLooping();
         }
 
-        public void setMusic3()
+        public void SetMusic3()
         {
-            p.SoundLocation = @"D:\Bruno Mars - 24K Magic [mqms2].wav";
+            p.SoundLocation = @".\Bruno Mars - 24K Magic [mqms2].wav";
             p.Load();
             p.PlayLooping();
         }
 
-        public void setPause()
+        public void SetPause()
         {
             p.Stop();
         }

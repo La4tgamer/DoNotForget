@@ -12,6 +12,7 @@ namespace diyControl
 {
     public partial class PanelMonth : UserControl
     {
+        public event EventHandler PMEvent;
         public PanelMonth()
         {
             InitializeComponent();
@@ -84,27 +85,38 @@ namespace diyControl
 
         private void PanelMonth_MouseClick(object sender, EventArgs e)
         {
+            
             PanelDay pd = (PanelDay)sender;
             pd.BackColor = System.Drawing.Color.Green;
             datetime = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, Convert.ToInt32(pd.Solar));
             dateTimePicker.Value = datetime;
             DisplayPD(datetime);
+            //PMEvent?.Invoke(this, e);
         }
 
         private void PanelMonth_MouseEnter(object sender, EventArgs e)
         {
-
+            PanelDay pd = (PanelDay)sender;
+            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            {
+                pd.BackColor = System.Drawing.Color.DarkSeaGreen;
+            }
         }
 
         private void PanelMonth_MouseLeave(object sender, EventArgs e)
         {
-
+            PanelDay pd = (PanelDay)sender;
+            if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
+            {
+                pd.BackColor = this.BackColor;
+            }
         }
 
         private void dateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             datetime = dateTimePicker.Value;
             DisplayPD(datetime);
+            PMEvent?.Invoke(this, e);
         }
 
     }

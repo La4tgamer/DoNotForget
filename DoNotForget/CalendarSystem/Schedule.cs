@@ -60,7 +60,10 @@ namespace CalendarSystem {
         //提醒
         public void Remind() {
             OutDate();//设置为已提醒
-            Console.WriteLine("time out");
+        }
+
+        public void RemindOver() {
+
         }
 
         //完成
