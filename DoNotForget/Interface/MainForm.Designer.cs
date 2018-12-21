@@ -136,14 +136,14 @@
             this.panelMonth1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMonth1.Location = new System.Drawing.Point(0, 0);
             this.panelMonth1.Name = "panelMonth1";
-            this.panelMonth1.Size = new System.Drawing.Size(671, 715);
+            this.panelMonth1.Size = new System.Drawing.Size(671, 853);
             this.panelMonth1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 715);
+            this.ClientSize = new System.Drawing.Size(1067, 853);
             this.Controls.Add(this.panelMonth1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(4);
