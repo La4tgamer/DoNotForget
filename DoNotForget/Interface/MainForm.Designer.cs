@@ -34,6 +34,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panelMonth1 = new diyControl.PanelMonth();
+            this.remindTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -139,6 +140,12 @@
             this.panelMonth1.Size = new System.Drawing.Size(671, 853);
             this.panelMonth1.TabIndex = 1;
             // 
+            // remindTimer
+            // 
+            this.remindTimer.Enabled = true;
+            this.remindTimer.Interval = 15000;
+            this.remindTimer.Tick += new System.EventHandler(this.remindTimer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -167,6 +174,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private diyControl.PanelMonth panelMonth1;
+        private System.Windows.Forms.Timer remindTimer;
     }
 }
 

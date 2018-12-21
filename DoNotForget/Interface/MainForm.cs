@@ -84,6 +84,7 @@ namespace Interface {
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
 
@@ -145,6 +146,14 @@ namespace Interface {
 
         private void clbTodaySchedules_MouseLeave(object sender, EventArgs e) {
             clbTodaySchedules.SelectedIndex = -1;
+        }
+
+        private void remindTimer_Tick(object sender, EventArgs e) {
+            scheduleService.CheckRemind();
+            if (scheduleService.remindSchedules.Count != 0) {
+                MessageBox.Show("时间到");
+                scheduleService.remindSchedules.Clear();//全部删除
+            }
         }
     }
 }

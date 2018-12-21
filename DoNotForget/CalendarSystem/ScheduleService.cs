@@ -17,8 +17,9 @@ namespace CalendarSystem {
          * 
          */
         public List<Schedule> allSchedules;//使用List储存所有的schedule
-        public List<Schedule> todaySchedules;//当天的日程，用来判断提醒事项
+        public List<Schedule> todaySchedules;//当天的日程，日历选中的当前天
         List<Schedule> finishedSchedules;//当天已完成的日程
+        public List<Schedule> remindSchedules;//今天的日程，
 
         int Count { set; get; }//记录有多少个日程
 
@@ -26,6 +27,7 @@ namespace CalendarSystem {
             allSchedules = new List<Schedule>();
             todaySchedules = GetTodaySchedule();
             finishedSchedules = new List<Schedule>();
+            remindSchedules = new List<Schedule>();
         }
         public ScheduleService(string path) {
             allSchedules = new List<Schedule>();
@@ -77,11 +79,15 @@ namespace CalendarSystem {
         //检查是否有需要提醒的日程
         public bool CheckRemind() {
             DateTime nowTime = DateTime.Now;//当前时间
-            //在当天的日程中寻找需要提醒的事项
-            foreach (Schedule schedule in todaySchedules) {
-                //当前时间晚于提醒时间时提醒
-                if (DateTime.Compare(schedule.Time, nowTime) <= 0) {
-                    schedule.Remind();
+            List<Schedule> nowSchedule = GetTodaySchedule();//今天的日程
+            //在今天的日程中寻找需要提醒的事项
+            foreach (Schedule schedule in nowSchedule) {
+                if (!schedule.isOutDate) {//寻找未过时事件
+                    //当前时间晚于提醒时间时提醒
+                    if (schedule.Time < nowTime) {
+                        schedule.Remind();
+                        remindSchedules.Add(schedule);//加入需要提醒list
+                    }
                 }
                 
             }
