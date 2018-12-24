@@ -38,8 +38,11 @@
             this.remindTimer = new System.Windows.Forms.Timer(this.components);
             this.panelMonth1 = new diyControl.PanelMonth();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.remindTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,7 +54,7 @@
             this.panel1.Controls.Add(this.LtodaySchedules);
             this.panel1.Controls.Add(this.clbTodaySchedules);
             this.panel1.Location = new System.Drawing.Point(677, 226);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(389, 461);
             this.panel1.TabIndex = 0;
@@ -61,7 +64,7 @@
             this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModify.Location = new System.Drawing.Point(139, 389);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(96, 29);
             this.btnModify.TabIndex = 5;
@@ -74,7 +77,7 @@
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDelete.Location = new System.Drawing.Point(243, 389);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(96, 29);
             this.btnDelete.TabIndex = 4;
@@ -87,7 +90,7 @@
             this.btnQueryAllSchedules.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQueryAllSchedules.Location = new System.Drawing.Point(68, 352);
-            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4);
             this.btnQueryAllSchedules.Name = "btnQueryAllSchedules";
             this.btnQueryAllSchedules.Size = new System.Drawing.Size(243, 29);
             this.btnQueryAllSchedules.TabIndex = 3;
@@ -100,7 +103,7 @@
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAdd.Location = new System.Drawing.Point(35, 389);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(96, 29);
             this.btnAdd.TabIndex = 2;
@@ -128,7 +131,7 @@
             this.clbTodaySchedules.FormattingEnabled = true;
             this.clbTodaySchedules.HorizontalScrollbar = true;
             this.clbTodaySchedules.Location = new System.Drawing.Point(0, 40);
-            this.clbTodaySchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clbTodaySchedules.Margin = new System.Windows.Forms.Padding(4);
             this.clbTodaySchedules.Name = "clbTodaySchedules";
             this.clbTodaySchedules.Size = new System.Drawing.Size(387, 244);
             this.clbTodaySchedules.TabIndex = 0;
@@ -165,11 +168,26 @@
             // 
             // notifyIcon1
             // 
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Don\'t Forget";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.Click += new System.EventHandler(this.notifyIcon1_Click);
-            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 24);
+            this.toolStripMenuItem1.Text = "关闭";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // remindTip1
             // 
@@ -185,13 +203,14 @@
             this.Controls.Add(this.panelMonth1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Don\'t Forgrt(万年历记事软件)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.panel1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -212,6 +231,8 @@
         private System.Windows.Forms.Timer remindTimer;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolTip remindTip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
 

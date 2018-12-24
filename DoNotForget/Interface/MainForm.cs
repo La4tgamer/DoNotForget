@@ -158,16 +158,17 @@ namespace Interface {
             scheduleService.CheckRemind();
             if (scheduleService.remindSchedules.Count != 0) {
                 string detail = scheduleService.remindSchedules[0].Details;
+                int musicIndex = scheduleService.remindSchedules[0].MusicIndex;//音乐
                 scheduleService.remindSchedules.Clear();//全部删除
 
                 //最小化时气球提示
                 if (!this.Visible && !mForm.Visible) {
-                    bgmusic.SetRemindMusic();
+                    bgmusic.SetRemindMusic(musicIndex);
                     notifyIcon1.ShowBalloonTip(3000, "日程到点啦！", detail + "!!", ToolTipIcon.Info);
                 }
                 else {
                     //非最小化弹窗
-                    bgmusic.SetMusic1();
+                    bgmusic.SetMusic(musicIndex);
                     MessageBox.Show(detail + "!!");
                     bgmusic.SetPause();
                 }
@@ -183,33 +184,46 @@ namespace Interface {
         }
         //恢复大窗口
         private void notifyIcon1_DoubleClick(object sender, EventArgs e) {
-            if (this.WindowState == FormWindowState.Minimized || !this.Visible || !mForm.Visible) {
-                if (winFlag) {
-                    this.Show();
-                    this.WindowState = FormWindowState.Normal;
-                }
-                else {
-                    mForm.Show();
-                }
-                
-            }
-
+            
         }
 
         private void notifyIcon1_Click(object sender, EventArgs e) {
-            if (this.Visible == true) {
-                winFlag = true;
-                this.Visible = false;//大窗口消失
-
-            }
-            else if (mForm.Visible == true) {
-                winFlag = false;
-                mForm.Visible = false;//小窗口消失
-            }
+           
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e) {
             scheduleService.SaveData("./data/schedules.xml");
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e) {
+            if (e.Button == MouseButtons.Left) {
+                if (this.Visible == true) {
+                    winFlag = true;
+                    this.Visible = false;//大窗口消失
+
+                }
+                else if (mForm.Visible == true) {
+                    winFlag = false;
+                    mForm.Visible = false;//小窗口消失
+                }
+                else {//恢复大窗口
+                    if (this.WindowState == FormWindowState.Minimized || !this.Visible || !mForm.Visible) {
+                        if (winFlag) {
+                            this.Show();
+                            this.WindowState = FormWindowState.Normal;
+                        }
+                        else {
+                            mForm.Show();
+                        }
+
+                    }
+                }
+            }
+           
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }

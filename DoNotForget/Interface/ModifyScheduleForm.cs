@@ -65,7 +65,7 @@ namespace Interface
             for (int i = 0; i < rtbModifyDetails.Lines.Count(); i++) {
                 details += rtbModifyDetails.Lines[i];
             }
-            Schedule schedule = new Schedule(dtpModifyRemindTime.Value, cycle, details);
+            Schedule schedule = new Schedule(dtpModifyRemindTime.Value, cycle, details, 1);
             MainForm.scheduleService.ModifySchedule(lbAllSchedules.SelectedIndex, schedule);
             MessageBox.Show("日程修改成功");
             Dispose();
@@ -89,6 +89,7 @@ namespace Interface
             rtbModifyDetails.Text = MainForm.scheduleService.allSchedules[index].Details;
             //选中的时间
             dtpModifyRemindTime.Value = MainForm.scheduleService.allSchedules[index].Time;
+           
         }
     }
 }

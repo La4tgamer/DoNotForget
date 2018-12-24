@@ -40,6 +40,7 @@ namespace CalendarSystem {
             }
         }//提醒周期
         public string Details { set; get; }//提醒内容
+        public int MusicIndex { set; get; }//音乐
         public bool isOutDate;//是否过时，过时未完成显示红色（提醒之后）
         public bool isFinished;//是否完成,构造函数中设置未完成。
         public bool needRemind;//是否需要响铃提醒
@@ -48,14 +49,16 @@ namespace CalendarSystem {
             Time = DateTime.Now + TimeSpan.FromMinutes(5);//默认在五分钟之后提醒
             Cycle = "once";
             Details = "这个人有点懒";
+            MusicIndex = 1;
             isOutDate = false;//默认未过时
             isFinished = false;//默认未完成
         }
         //带参数的构造函数
-        public Schedule(DateTime time, string cycle, string details) {
+        public Schedule(DateTime time, string cycle, string details, int musicIndex) {
             Time = time;
             Cycle = cycle;
             Details = details;
+            MusicIndex = musicIndex;
             if (DateTime.Compare(time, DateTime.Now) < 0) {
                 isOutDate = true;//添加的过时事件
             }

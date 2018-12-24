@@ -40,6 +40,8 @@
             this.gbSetRemindCycle = new System.Windows.Forms.GroupBox();
             this.LShowNowTime = new System.Windows.Forms.Label();
             this.dtpSetRemindTime = new System.Windows.Forms.DateTimePicker();
+            this.LSetRemindMusic = new System.Windows.Forms.Label();
+            this.cbRemindMusic = new System.Windows.Forms.ComboBox();
             this.gbSetRemindCycle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -168,12 +170,37 @@
             this.dtpSetRemindTime.Size = new System.Drawing.Size(265, 25);
             this.dtpSetRemindTime.TabIndex = 11;
             // 
+            // LSetRemindMusic
+            // 
+            this.LSetRemindMusic.AutoSize = true;
+            this.LSetRemindMusic.Location = new System.Drawing.Point(131, 466);
+            this.LSetRemindMusic.Name = "LSetRemindMusic";
+            this.LSetRemindMusic.Size = new System.Drawing.Size(97, 15);
+            this.LSetRemindMusic.TabIndex = 12;
+            this.LSetRemindMusic.Text = "设置提醒铃声";
+            // 
+            // cbRemindMusic
+            // 
+            this.cbRemindMusic.FormattingEnabled = true;
+            this.cbRemindMusic.Items.AddRange(new object[] {
+            "（无）",
+            "音乐1",
+            "音乐2",
+            "音乐3"});
+            this.cbRemindMusic.Location = new System.Drawing.Point(268, 458);
+            this.cbRemindMusic.Name = "cbRemindMusic";
+            this.cbRemindMusic.Size = new System.Drawing.Size(265, 23);
+            this.cbRemindMusic.TabIndex = 13;
+            this.cbRemindMusic.Text = "（无）";
+            // 
             // AddScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(645, 576);
+            this.Controls.Add(this.cbRemindMusic);
+            this.Controls.Add(this.LSetRemindMusic);
             this.Controls.Add(this.dtpSetRemindTime);
             this.Controls.Add(this.LShowNowTime);
             this.Controls.Add(this.gbSetRemindCycle);
@@ -206,5 +233,7 @@
         private System.Windows.Forms.GroupBox gbSetRemindCycle;
         private System.Windows.Forms.Label LShowNowTime;
         private System.Windows.Forms.DateTimePicker dtpSetRemindTime;
+        private System.Windows.Forms.Label LSetRemindMusic;
+        private System.Windows.Forms.ComboBox cbRemindMusic;
     }
 }

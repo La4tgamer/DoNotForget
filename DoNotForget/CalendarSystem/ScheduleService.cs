@@ -19,8 +19,9 @@ namespace CalendarSystem {
          */
         public List<Schedule> allSchedules;//使用List储存所有的schedule
         public List<Schedule> todaySchedules;//当天的日程，日历选中的当前天
-        List<Schedule> finishedSchedules;//当天已完成的日程
-        public List<Schedule> remindSchedules;//今天的日程，
+        public List<Schedule> finishedSchedules;//当天已完成的日程
+        public List<Schedule> remindSchedules;//用来提醒的日程
+        public List<Schedule> nowSchedule;//今天的日程，
 
         int Count { set; get; }//记录有多少个日程
 
@@ -29,6 +30,7 @@ namespace CalendarSystem {
             todaySchedules = GetTodaySchedule();
             finishedSchedules = new List<Schedule>();
             remindSchedules = new List<Schedule>();
+            nowSchedule = GetTodaySchedule();//打开程序的时候初始化一次，在添加删除之后再一次
         }
         public ScheduleService(string path) {
             allSchedules = new List<Schedule>();
@@ -41,6 +43,7 @@ namespace CalendarSystem {
         //更新当日日程
         public void UpdateTodaySchedule(DateTime dateTime) {
             todaySchedules = GetSomeDaySchedule(dateTime);
+            nowSchedule = GetTodaySchedule();//更新今天的日程
             //UpdateFinishedSchedules();//将当日已完成的日程移动到完成的list中去
         }
         //将今天的日程已完成的移动到已完成list
@@ -80,7 +83,6 @@ namespace CalendarSystem {
         //检查是否有需要提醒的日程
         public bool CheckRemind() {
             DateTime nowTime = DateTime.Now;//当前时间
-            List<Schedule> nowSchedule = GetTodaySchedule();//今天的日程
             //在今天的日程中寻找需要提醒的事项
             foreach (Schedule schedule in nowSchedule) {
                 if (!schedule.isOutDate) {//寻找未过时事件
@@ -113,7 +115,7 @@ namespace CalendarSystem {
                         Schedule newSchedule = new Schedule(
                         new DateTime(nowTime.Year, nowTime.Month,
                         nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
-                        "once", schedule.Details);
+                        "once", schedule.Details, schedule.MusicIndex);
                         todaySchedule.Add(newSchedule);
                     }
                 }
@@ -124,7 +126,7 @@ namespace CalendarSystem {
                             Schedule newSchedule = new Schedule(
                             new DateTime(nowTime.Year, nowTime.Month,
                             nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
-                            "once", schedule.Details);
+                            "once", schedule.Details, schedule.MusicIndex);
                             todaySchedule.Add(newSchedule);
                         }
                     }
@@ -153,7 +155,7 @@ namespace CalendarSystem {
                         Schedule newSchedule = new Schedule(
                         new DateTime(nowTime.Year, nowTime.Month,
                         nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
-                        "once", schedule.Details);
+                        "once", schedule.Details, schedule.MusicIndex);
                         todaySchedule.Add(newSchedule);
                     }
                 }
@@ -164,7 +166,7 @@ namespace CalendarSystem {
                             Schedule newSchedule = new Schedule(
                             new DateTime(nowTime.Year, nowTime.Month,
                             nowTime.Day, schedule.Time.Hour, schedule.Time.Minute, schedule.Time.Second),
-                            "once", schedule.Details);
+                            "once", schedule.Details, schedule.MusicIndex);
                             todaySchedule.Add(newSchedule);
                         }
                     }

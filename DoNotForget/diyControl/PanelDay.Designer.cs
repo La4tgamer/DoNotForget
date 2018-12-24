@@ -38,7 +38,7 @@
             this.labelSolar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSolar.AutoSize = true;
             this.labelSolar.Font = new System.Drawing.Font("Calibri", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSolar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelSolar.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.labelSolar.Location = new System.Drawing.Point(1, 0);
             this.labelSolar.Name = "labelSolar";
             this.labelSolar.Size = new System.Drawing.Size(55, 64);
@@ -51,7 +51,7 @@
             this.labelLunar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelLunar.AutoSize = true;
             this.labelLunar.Font = new System.Drawing.Font("楷体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelLunar.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelLunar.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.labelLunar.Location = new System.Drawing.Point(1, 57);
             this.labelLunar.Name = "labelLunar";
             this.labelLunar.Size = new System.Drawing.Size(58, 24);
@@ -63,7 +63,7 @@
             this.labelTerms.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelTerms.AutoSize = true;
             this.labelTerms.Font = new System.Drawing.Font("楷体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTerms.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.labelTerms.ForeColor = System.Drawing.SystemColors.Highlight;
             this.labelTerms.Location = new System.Drawing.Point(1, 81);
             this.labelTerms.Name = "labelTerms";
             this.labelTerms.Size = new System.Drawing.Size(58, 24);

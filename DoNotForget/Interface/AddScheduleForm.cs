@@ -67,7 +67,7 @@ namespace Interface
             DateTime  dateTime= dtpSetRemindTime.Value;
             DateTime remindTime = new DateTime(dateTime.Year, dateTime.Month,
                         dateTime.Day, dateTime.Hour, dateTime.Minute, 0);
-            Schedule schedule = new Schedule(remindTime, cycle, details);
+            Schedule schedule = new Schedule(remindTime, cycle, details, cbRemindMusic.SelectedIndex);
             MainForm.scheduleService.AddSchedule(schedule);
             MessageBox.Show("日程添加成功");
             Dispose();
