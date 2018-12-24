@@ -19,7 +19,7 @@ namespace Interface {
         MinimumForm mForm;//小窗口生成
         bool winFlag = false;//判断缩小到托盘时候的状态（true大窗口，false小窗口）
         //刷新显示的今日日程
-        private void UpdateDisplayTodaySchedules(DateTime dateTime)
+        public void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
             clbTodaySchedules.Items.Clear();      //首先清空所有日程
             scheduleService.UpdateTodaySchedule(dateTime);
@@ -87,8 +87,6 @@ namespace Interface {
             panelMonth1.Datetime = DateTime.Now;//初始化时间
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
-
-
         }
         //自定义控件回调函数
         private void panelMonth1_ValueChanged(object sender, EventArgs e) {

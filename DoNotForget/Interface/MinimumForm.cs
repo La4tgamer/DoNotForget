@@ -40,6 +40,7 @@ namespace Interface
             {
                 listBox1.Items.Add(schedule.ToStringShort());
             }
+            mainForm.UpdateDisplayTodaySchedules(dateTime);         //同步主界面中的今日日程
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
