@@ -17,6 +17,7 @@ namespace Interface
         public AddScheduleForm()
         {
             InitializeComponent();
+            cbRemindMusic.SelectedIndex = 0;      //设置提醒铃声默认为 （无）
             StartPosition = FormStartPosition.CenterParent;  //设置弹出窗口居中
             System.Timers.Timer timer = new System.Timers.Timer(1000);
             timer.Elapsed += new System.Timers.ElapsedEventHandler(timer_Elapsed);

@@ -28,30 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteScheduleForm));
             this.clbAllSchedules = new System.Windows.Forms.CheckedListBox();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnSelectNone = new System.Windows.Forms.Button();
             this.btnSelectAll = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // clbAllSchedules
             // 
+            this.clbAllSchedules.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.clbAllSchedules.FormattingEnabled = true;
             this.clbAllSchedules.HorizontalScrollbar = true;
-            this.clbAllSchedules.Location = new System.Drawing.Point(73, 0);
-            this.clbAllSchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clbAllSchedules.Location = new System.Drawing.Point(55, 0);
             this.clbAllSchedules.Name = "clbAllSchedules";
-            this.clbAllSchedules.Size = new System.Drawing.Size(505, 384);
+            this.clbAllSchedules.Size = new System.Drawing.Size(380, 319);
             this.clbAllSchedules.TabIndex = 0;
+            this.clbAllSchedules.SelectedIndexChanged += new System.EventHandler(this.clbAllSchedules_SelectedIndexChanged);
             // 
             // btnYes
             // 
+            this.btnYes.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnYes.ForeColor = System.Drawing.Color.Red;
-            this.btnYes.Location = new System.Drawing.Point(243, 520);
-            this.btnYes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnYes.Location = new System.Drawing.Point(166, 411);
             this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(169, 29);
+            this.btnYes.Size = new System.Drawing.Size(158, 28);
             this.btnYes.TabIndex = 1;
             this.btnYes.Text = "确认删除所选日程";
             this.btnYes.UseVisualStyleBackColor = true;
@@ -59,10 +62,10 @@
             // 
             // btnSelectNone
             // 
-            this.btnSelectNone.Location = new System.Drawing.Point(145, 414);
-            this.btnSelectNone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectNone.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSelectNone.Location = new System.Drawing.Point(107, 360);
             this.btnSelectNone.Name = "btnSelectNone";
-            this.btnSelectNone.Size = new System.Drawing.Size(100, 29);
+            this.btnSelectNone.Size = new System.Drawing.Size(92, 23);
             this.btnSelectNone.TabIndex = 3;
             this.btnSelectNone.Text = "取消全选";
             this.btnSelectNone.UseVisualStyleBackColor = true;
@@ -70,10 +73,10 @@
             // 
             // btnSelectAll
             // 
-            this.btnSelectAll.Location = new System.Drawing.Point(411, 414);
-            this.btnSelectAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelectAll.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnSelectAll.Location = new System.Drawing.Point(309, 360);
             this.btnSelectAll.Name = "btnSelectAll";
-            this.btnSelectAll.Size = new System.Drawing.Size(100, 29);
+            this.btnSelectAll.Size = new System.Drawing.Size(75, 23);
             this.btnSelectAll.TabIndex = 4;
             this.btnSelectAll.Text = "全选";
             this.btnSelectAll.UseVisualStyleBackColor = true;
@@ -81,16 +84,15 @@
             // 
             // DeleteScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(645, 576);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.btnSelectAll);
             this.Controls.Add(this.btnSelectNone);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.clbAllSchedules);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "DeleteScheduleForm";
             this.Text = "删除日程";
             this.ResumeLayout(false);
@@ -103,5 +105,6 @@
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnSelectNone;
         private System.Windows.Forms.Button btnSelectAll;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

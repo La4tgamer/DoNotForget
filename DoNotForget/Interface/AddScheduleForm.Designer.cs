@@ -48,30 +48,30 @@
             // LNowTime
             // 
             this.LNowTime.AutoSize = true;
-            this.LNowTime.Location = new System.Drawing.Point(177, 35);
-            this.LNowTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LNowTime.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LNowTime.Location = new System.Drawing.Point(88, 23);
             this.LNowTime.Name = "LNowTime";
-            this.LNowTime.Size = new System.Drawing.Size(112, 15);
+            this.LNowTime.Size = new System.Drawing.Size(120, 16);
             this.LNowTime.TabIndex = 0;
             this.LNowTime.Text = "当前日期和时间";
             // 
             // rtbDetails
             // 
-            this.rtbDetails.Location = new System.Drawing.Point(133, 84);
-            this.rtbDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.rtbDetails.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rtbDetails.Location = new System.Drawing.Point(76, 62);
             this.rtbDetails.Name = "rtbDetails";
             this.rtbDetails.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.rtbDetails.Size = new System.Drawing.Size(408, 210);
+            this.rtbDetails.Size = new System.Drawing.Size(333, 169);
             this.rtbDetails.TabIndex = 2;
             this.rtbDetails.Text = "";
             // 
             // btnYes
             // 
+            this.btnYes.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnYes.ForeColor = System.Drawing.Color.Blue;
-            this.btnYes.Location = new System.Drawing.Point(168, 532);
-            this.btnYes.Margin = new System.Windows.Forms.Padding(4);
+            this.btnYes.Location = new System.Drawing.Point(106, 421);
             this.btnYes.Name = "btnYes";
-            this.btnYes.Size = new System.Drawing.Size(100, 29);
+            this.btnYes.Size = new System.Drawing.Size(75, 23);
             this.btnYes.TabIndex = 3;
             this.btnYes.Text = "确认";
             this.btnYes.UseVisualStyleBackColor = true;
@@ -79,11 +79,11 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCancel.ForeColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(409, 532);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancel.Location = new System.Drawing.Point(287, 421);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 29);
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -93,10 +93,9 @@
             // 
             this.rbOnce.AutoSize = true;
             this.rbOnce.Checked = true;
-            this.rbOnce.Location = new System.Drawing.Point(8, 40);
-            this.rbOnce.Margin = new System.Windows.Forms.Padding(4);
+            this.rbOnce.Location = new System.Drawing.Point(6, 32);
             this.rbOnce.Name = "rbOnce";
-            this.rbOnce.Size = new System.Drawing.Size(118, 19);
+            this.rbOnce.Size = new System.Drawing.Size(122, 20);
             this.rbOnce.TabIndex = 5;
             this.rbOnce.TabStop = true;
             this.rbOnce.Text = "定时提醒一次";
@@ -106,10 +105,9 @@
             // rbDaily
             // 
             this.rbDaily.AutoSize = true;
-            this.rbDaily.Location = new System.Drawing.Point(167, 40);
-            this.rbDaily.Margin = new System.Windows.Forms.Padding(4);
+            this.rbDaily.Location = new System.Drawing.Point(134, 32);
             this.rbDaily.Name = "rbDaily";
-            this.rbDaily.Size = new System.Drawing.Size(88, 19);
+            this.rbDaily.Size = new System.Drawing.Size(90, 20);
             this.rbDaily.TabIndex = 6;
             this.rbDaily.Text = "每日提醒";
             this.rbDaily.UseVisualStyleBackColor = true;
@@ -117,10 +115,9 @@
             // rbWeekly
             // 
             this.rbWeekly.AutoSize = true;
-            this.rbWeekly.Location = new System.Drawing.Point(307, 40);
-            this.rbWeekly.Margin = new System.Windows.Forms.Padding(4);
+            this.rbWeekly.Location = new System.Drawing.Point(233, 32);
             this.rbWeekly.Name = "rbWeekly";
-            this.rbWeekly.Size = new System.Drawing.Size(88, 19);
+            this.rbWeekly.Size = new System.Drawing.Size(90, 20);
             this.rbWeekly.TabIndex = 7;
             this.rbWeekly.Text = "每周提醒";
             this.rbWeekly.UseVisualStyleBackColor = true;
@@ -128,10 +125,10 @@
             // LSetRemindTime
             // 
             this.LSetRemindTime.AutoSize = true;
-            this.LSetRemindTime.Location = new System.Drawing.Point(131, 416);
-            this.LSetRemindTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LSetRemindTime.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LSetRemindTime.Location = new System.Drawing.Point(73, 329);
             this.LSetRemindTime.Name = "LSetRemindTime";
-            this.LSetRemindTime.Size = new System.Drawing.Size(97, 15);
+            this.LSetRemindTime.Size = new System.Drawing.Size(104, 16);
             this.LSetRemindTime.TabIndex = 8;
             this.LSetRemindTime.Text = "设置提醒时间";
             this.LSetRemindTime.Click += new System.EventHandler(this.LSetRemindTime_Click);
@@ -141,11 +138,10 @@
             this.gbSetRemindCycle.Controls.Add(this.rbDaily);
             this.gbSetRemindCycle.Controls.Add(this.rbOnce);
             this.gbSetRemindCycle.Controls.Add(this.rbWeekly);
-            this.gbSetRemindCycle.Location = new System.Drawing.Point(133, 316);
-            this.gbSetRemindCycle.Margin = new System.Windows.Forms.Padding(4);
+            this.gbSetRemindCycle.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gbSetRemindCycle.Location = new System.Drawing.Point(76, 248);
             this.gbSetRemindCycle.Name = "gbSetRemindCycle";
-            this.gbSetRemindCycle.Padding = new System.Windows.Forms.Padding(4);
-            this.gbSetRemindCycle.Size = new System.Drawing.Size(409, 68);
+            this.gbSetRemindCycle.Size = new System.Drawing.Size(333, 54);
             this.gbSetRemindCycle.TabIndex = 9;
             this.gbSetRemindCycle.TabStop = false;
             this.gbSetRemindCycle.Text = "设置提醒周期";
@@ -153,52 +149,56 @@
             // LShowNowTime
             // 
             this.LShowNowTime.AutoSize = true;
-            this.LShowNowTime.Location = new System.Drawing.Point(327, 35);
-            this.LShowNowTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LShowNowTime.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LShowNowTime.Location = new System.Drawing.Point(220, 23);
             this.LShowNowTime.Name = "LShowNowTime";
-            this.LShowNowTime.Size = new System.Drawing.Size(172, 15);
+            this.LShowNowTime.Size = new System.Drawing.Size(184, 16);
             this.LShowNowTime.TabIndex = 10;
             this.LShowNowTime.Text = "此处显示当前日期和时间";
             // 
             // dtpSetRemindTime
             // 
-            this.dtpSetRemindTime.CustomFormat = "     yyyy-MM-dd HH:mm:00";
+            this.dtpSetRemindTime.CustomFormat = "    yyyy-MM-dd HH:mm:00";
+            this.dtpSetRemindTime.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpSetRemindTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpSetRemindTime.Location = new System.Drawing.Point(268, 409);
-            this.dtpSetRemindTime.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpSetRemindTime.Location = new System.Drawing.Point(181, 322);
             this.dtpSetRemindTime.Name = "dtpSetRemindTime";
-            this.dtpSetRemindTime.Size = new System.Drawing.Size(265, 25);
+            this.dtpSetRemindTime.Size = new System.Drawing.Size(228, 26);
             this.dtpSetRemindTime.TabIndex = 11;
             // 
             // LSetRemindMusic
             // 
             this.LSetRemindMusic.AutoSize = true;
-            this.LSetRemindMusic.Location = new System.Drawing.Point(131, 466);
+            this.LSetRemindMusic.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.LSetRemindMusic.Location = new System.Drawing.Point(73, 361);
+            this.LSetRemindMusic.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LSetRemindMusic.Name = "LSetRemindMusic";
-            this.LSetRemindMusic.Size = new System.Drawing.Size(97, 15);
+            this.LSetRemindMusic.Size = new System.Drawing.Size(104, 16);
             this.LSetRemindMusic.TabIndex = 12;
             this.LSetRemindMusic.Text = "设置提醒铃声";
             // 
             // cbRemindMusic
             // 
+            this.cbRemindMusic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRemindMusic.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cbRemindMusic.FormattingEnabled = true;
             this.cbRemindMusic.Items.AddRange(new object[] {
             "（无）",
             "音乐1",
             "音乐2",
             "音乐3"});
-            this.cbRemindMusic.Location = new System.Drawing.Point(268, 458);
+            this.cbRemindMusic.Location = new System.Drawing.Point(181, 361);
+            this.cbRemindMusic.Margin = new System.Windows.Forms.Padding(2);
             this.cbRemindMusic.Name = "cbRemindMusic";
-            this.cbRemindMusic.Size = new System.Drawing.Size(265, 23);
+            this.cbRemindMusic.Size = new System.Drawing.Size(228, 24);
             this.cbRemindMusic.TabIndex = 13;
-            this.cbRemindMusic.Text = "（无）";
             // 
             // AddScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(645, 576);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.cbRemindMusic);
             this.Controls.Add(this.LSetRemindMusic);
             this.Controls.Add(this.dtpSetRemindTime);
@@ -210,7 +210,6 @@
             this.Controls.Add(this.rtbDetails);
             this.Controls.Add(this.LNowTime);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddScheduleForm";
             this.Text = "添加新日程";
             this.gbSetRemindCycle.ResumeLayout(false);

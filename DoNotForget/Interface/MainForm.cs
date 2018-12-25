@@ -48,12 +48,13 @@ namespace Interface {
                 Size = new Size(350, 250),
                 Location = new Point(18, 0),
                 HorizontalScrollbar = true,
-        };
+                Font = new Font("楷体", 12, FontStyle.Regular),
+            };
             Form form = new Form
             {
                 Text = "查看所有日程",
                 Size = new Size(400, 300),
-                BackColor = Color.LightBlue,
+                BackColor = Color.White,
                 Location = new Point(600, 350),
                 FormBorderStyle = FormBorderStyle.FixedDialog,
                 StartPosition = FormStartPosition.CenterParent,

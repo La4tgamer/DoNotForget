@@ -41,8 +41,6 @@ namespace Interface
                 MainForm.scheduleService.DeleteSchedule(schedule);
             }
             UpdateDisplayAllSchedules();
-
-
         }
         //取消全选的按钮响应事件
         private void btnSelectNone_Click(object sender, EventArgs e)
@@ -67,6 +65,23 @@ namespace Interface
             foreach (Schedule schedule in MainForm.scheduleService.allSchedules) {
                 clbAllSchedules.Items.Add(schedule.ToStringAll());
             }
+        }
+
+        private void clbAllSchedules_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                if (clbAllSchedules.SelectedIndex < 0)
+                {
+                    return;
+                }
+                if (clbAllSchedules.SelectedIndices.Count > 0)
+                {
+                    toolTip1.Active = true;
+                    toolTip1.SetToolTip(clbAllSchedules, clbAllSchedules.Items[clbAllSchedules.SelectedIndex].ToString());
+                }
+                else
+                {
+                    toolTip1.Active = false;
+                }  
         }
     }
 }
