@@ -67,21 +67,6 @@ namespace Interface
             }
         }
 
-        private void clbAllSchedules_SelectedIndexChanged(object sender, EventArgs e)
-        {
-                if (clbAllSchedules.SelectedIndex < 0)
-                {
-                    return;
-                }
-                if (clbAllSchedules.SelectedIndices.Count > 0)
-                {
-                    toolTip1.Active = true;
-                    toolTip1.SetToolTip(clbAllSchedules, clbAllSchedules.Items[clbAllSchedules.SelectedIndex].ToString());
-                }
-                else
-                {
-                    toolTip1.Active = false;
-                }  
-        }
+        private void clbAllSchedules_SelectedIndexChanged(object sender, EventArgs e){}
     }
 }

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panelSearch = new System.Windows.Forms.Panel();
+            this.Today = new System.Windows.Forms.LinkLabel();
+            this.Rightbtn = new System.Windows.Forms.Button();
+            this.Leftbtn = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panelWeek = new System.Windows.Forms.Panel();
             this.labelSaturday = new System.Windows.Forms.Label();
@@ -39,9 +42,6 @@
             this.labelMonday = new System.Windows.Forms.Label();
             this.labelSunday = new System.Windows.Forms.Label();
             this.panelWall = new System.Windows.Forms.Panel();
-            this.Leftbtn = new System.Windows.Forms.Button();
-            this.Rightbtn = new System.Windows.Forms.Button();
-            this.Today = new System.Windows.Forms.LinkLabel();
             this.panelSearch.SuspendLayout();
             this.panelWeek.SuspendLayout();
             this.SuspendLayout();
@@ -52,17 +52,57 @@
             this.panelSearch.Controls.Add(this.Rightbtn);
             this.panelSearch.Controls.Add(this.Leftbtn);
             this.panelSearch.Controls.Add(this.dateTimePicker);
-            this.panelSearch.Location = new System.Drawing.Point(0, 4);
+            this.panelSearch.Location = new System.Drawing.Point(0, 3);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(665, 58);
+            this.panelSearch.Size = new System.Drawing.Size(499, 46);
             this.panelSearch.TabIndex = 0;
+            // 
+            // Today
+            // 
+            this.Today.AutoSize = true;
+            this.Today.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Today.Location = new System.Drawing.Point(294, 13);
+            this.Today.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Today.Name = "Today";
+            this.Today.Size = new System.Drawing.Size(89, 20);
+            this.Today.TabIndex = 3;
+            this.Today.TabStop = true;
+            this.Today.Text = "回到今天";
+            this.Today.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Today_LinkClicked);
+            // 
+            // Rightbtn
+            // 
+            this.Rightbtn.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Rightbtn.Location = new System.Drawing.Point(390, 13);
+            this.Rightbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Rightbtn.Name = "Rightbtn";
+            this.Rightbtn.Size = new System.Drawing.Size(75, 24);
+            this.Rightbtn.TabIndex = 2;
+            this.Rightbtn.Text = "-->";
+            this.Rightbtn.UseVisualStyleBackColor = true;
+            this.Rightbtn.Click += new System.EventHandler(this.Rightbtn_Click);
+            // 
+            // Leftbtn
+            // 
+            this.Leftbtn.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Leftbtn.Location = new System.Drawing.Point(210, 13);
+            this.Leftbtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Leftbtn.Name = "Leftbtn";
+            this.Leftbtn.Size = new System.Drawing.Size(75, 24);
+            this.Leftbtn.TabIndex = 1;
+            this.Leftbtn.Text = "<--";
+            this.Leftbtn.UseVisualStyleBackColor = true;
+            this.Leftbtn.Click += new System.EventHandler(this.Leftbtn_Click);
             // 
             // dateTimePicker
             // 
             this.dateTimePicker.CalendarFont = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(16, 16);
+            this.dateTimePicker.Font = new System.Drawing.Font("楷体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dateTimePicker.Location = new System.Drawing.Point(12, 13);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker.Size = new System.Drawing.Size(151, 23);
             this.dateTimePicker.TabIndex = 0;
             this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             // 
@@ -75,18 +115,20 @@
             this.panelWeek.Controls.Add(this.labelTuesday);
             this.panelWeek.Controls.Add(this.labelMonday);
             this.panelWeek.Controls.Add(this.labelSunday);
-            this.panelWeek.Location = new System.Drawing.Point(0, 69);
+            this.panelWeek.Location = new System.Drawing.Point(0, 55);
+            this.panelWeek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelWeek.Name = "panelWeek";
-            this.panelWeek.Size = new System.Drawing.Size(665, 37);
+            this.panelWeek.Size = new System.Drawing.Size(499, 30);
             this.panelWeek.TabIndex = 1;
             // 
             // labelSaturday
             // 
             this.labelSaturday.AutoSize = true;
             this.labelSaturday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelSaturday.Location = new System.Drawing.Point(558, 4);
+            this.labelSaturday.Location = new System.Drawing.Point(418, 3);
+            this.labelSaturday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSaturday.Name = "labelSaturday";
-            this.labelSaturday.Size = new System.Drawing.Size(90, 25);
+            this.labelSaturday.Size = new System.Drawing.Size(69, 20);
             this.labelSaturday.TabIndex = 6;
             this.labelSaturday.Text = "星期六";
             // 
@@ -94,9 +136,10 @@
             // 
             this.labelFriday.AutoSize = true;
             this.labelFriday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelFriday.Location = new System.Drawing.Point(465, 4);
+            this.labelFriday.Location = new System.Drawing.Point(349, 3);
+            this.labelFriday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelFriday.Name = "labelFriday";
-            this.labelFriday.Size = new System.Drawing.Size(90, 25);
+            this.labelFriday.Size = new System.Drawing.Size(69, 20);
             this.labelFriday.TabIndex = 5;
             this.labelFriday.Text = "星期五";
             // 
@@ -104,9 +147,10 @@
             // 
             this.labelThursday.AutoSize = true;
             this.labelThursday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelThursday.Location = new System.Drawing.Point(372, 4);
+            this.labelThursday.Location = new System.Drawing.Point(279, 3);
+            this.labelThursday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelThursday.Name = "labelThursday";
-            this.labelThursday.Size = new System.Drawing.Size(90, 25);
+            this.labelThursday.Size = new System.Drawing.Size(69, 20);
             this.labelThursday.TabIndex = 4;
             this.labelThursday.Text = "星期四";
             // 
@@ -114,9 +158,10 @@
             // 
             this.labelWednesday.AutoSize = true;
             this.labelWednesday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelWednesday.Location = new System.Drawing.Point(279, 4);
+            this.labelWednesday.Location = new System.Drawing.Point(209, 3);
+            this.labelWednesday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWednesday.Name = "labelWednesday";
-            this.labelWednesday.Size = new System.Drawing.Size(90, 25);
+            this.labelWednesday.Size = new System.Drawing.Size(69, 20);
             this.labelWednesday.TabIndex = 3;
             this.labelWednesday.Text = "星期三";
             // 
@@ -124,9 +169,10 @@
             // 
             this.labelTuesday.AutoSize = true;
             this.labelTuesday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTuesday.Location = new System.Drawing.Point(186, 4);
+            this.labelTuesday.Location = new System.Drawing.Point(140, 3);
+            this.labelTuesday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTuesday.Name = "labelTuesday";
-            this.labelTuesday.Size = new System.Drawing.Size(90, 25);
+            this.labelTuesday.Size = new System.Drawing.Size(69, 20);
             this.labelTuesday.TabIndex = 2;
             this.labelTuesday.Text = "星期二";
             // 
@@ -134,9 +180,10 @@
             // 
             this.labelMonday.AutoSize = true;
             this.labelMonday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMonday.Location = new System.Drawing.Point(93, 4);
+            this.labelMonday.Location = new System.Drawing.Point(70, 3);
+            this.labelMonday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMonday.Name = "labelMonday";
-            this.labelMonday.Size = new System.Drawing.Size(90, 25);
+            this.labelMonday.Size = new System.Drawing.Size(69, 20);
             this.labelMonday.TabIndex = 1;
             this.labelMonday.Text = "星期一";
             // 
@@ -144,62 +191,31 @@
             // 
             this.labelSunday.AutoSize = true;
             this.labelSunday.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelSunday.Location = new System.Drawing.Point(0, 4);
+            this.labelSunday.Location = new System.Drawing.Point(0, 3);
+            this.labelSunday.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSunday.Name = "labelSunday";
-            this.labelSunday.Size = new System.Drawing.Size(90, 25);
+            this.labelSunday.Size = new System.Drawing.Size(69, 20);
             this.labelSunday.TabIndex = 0;
             this.labelSunday.Text = "星期日";
             // 
             // panelWall
             // 
-            this.panelWall.Location = new System.Drawing.Point(0, 113);
+            this.panelWall.Location = new System.Drawing.Point(0, 90);
+            this.panelWall.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelWall.Name = "panelWall";
-            this.panelWall.Size = new System.Drawing.Size(665, 696);
+            this.panelWall.Size = new System.Drawing.Size(499, 557);
             this.panelWall.TabIndex = 2;
-            // 
-            // Leftbtn
-            // 
-            this.Leftbtn.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Leftbtn.Location = new System.Drawing.Point(280, 16);
-            this.Leftbtn.Name = "Leftbtn";
-            this.Leftbtn.Size = new System.Drawing.Size(100, 30);
-            this.Leftbtn.TabIndex = 1;
-            this.Leftbtn.Text = "<--";
-            this.Leftbtn.UseVisualStyleBackColor = true;
-            this.Leftbtn.Click += new System.EventHandler(this.Leftbtn_Click);
-            // 
-            // Rightbtn
-            // 
-            this.Rightbtn.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Rightbtn.Location = new System.Drawing.Point(520, 16);
-            this.Rightbtn.Name = "Rightbtn";
-            this.Rightbtn.Size = new System.Drawing.Size(100, 30);
-            this.Rightbtn.TabIndex = 2;
-            this.Rightbtn.Text = "-->";
-            this.Rightbtn.UseVisualStyleBackColor = true;
-            this.Rightbtn.Click += new System.EventHandler(this.Rightbtn_Click);
-            // 
-            // Today
-            // 
-            this.Today.AutoSize = true;
-            this.Today.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Today.Location = new System.Drawing.Point(392, 16);
-            this.Today.Name = "Today";
-            this.Today.Size = new System.Drawing.Size(116, 25);
-            this.Today.TabIndex = 3;
-            this.Today.TabStop = true;
-            this.Today.Text = "回到今天";
-            this.Today.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Today_LinkClicked);
             // 
             // PanelMonth
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelWall);
             this.Controls.Add(this.panelWeek);
             this.Controls.Add(this.panelSearch);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PanelMonth";
-            this.Size = new System.Drawing.Size(670, 820);
+            this.Size = new System.Drawing.Size(502, 656);
             this.panelSearch.ResumeLayout(false);
             this.panelSearch.PerformLayout();
             this.panelWeek.ResumeLayout(false);
