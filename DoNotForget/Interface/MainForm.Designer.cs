@@ -115,7 +115,7 @@
             // 
             this.LtodaySchedules.Dock = System.Windows.Forms.DockStyle.Top;
             this.LtodaySchedules.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.LtodaySchedules.ForeColor = System.Drawing.Color.Blue;
+            this.LtodaySchedules.ForeColor = System.Drawing.Color.Black;
             this.LtodaySchedules.Location = new System.Drawing.Point(0, 0);
             this.LtodaySchedules.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LtodaySchedules.Name = "LtodaySchedules";

@@ -20,20 +20,20 @@ namespace Interface
             m_graphic.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             //设置坐标原点
             m_graphic.TranslateTransform((float)(m_width * 4.05 / 5), (float)(m_height * 0.8 / 5));
-            m_graphic.FillEllipse(new SolidBrush(Color.AliceBlue), -m_radius, -m_radius, m_radius * 2, m_radius * 2);
+            m_graphic.FillEllipse(new SolidBrush(Color.White), -m_radius, -m_radius, m_radius * 2, m_radius * 2);
             //画外边框
-            Pen pen = new Pen(Color.Gray, 1);
+            Pen pen = new Pen(Color.Black, 1);
             m_graphic.DrawEllipse(pen, m_radius * (-1), m_radius * (-1), m_radius * 2, m_radius * 2);
             //画小刻度
             for (int i = 0; i < 60; i++)
             {
-                m_graphic.FillRectangle(new SolidBrush(Color.Gray), -0.5f, 1.5f - m_radius, 1, 5);
+                m_graphic.FillRectangle(new SolidBrush(Color.Black), -0.5f, 1.5f - m_radius, 1, 5);
                 m_graphic.RotateTransform(6);
             }
             //画大刻度
             for (int i = 0; i < 12; i++)
             {
-                m_graphic.FillRectangle(new SolidBrush(Color.Gray), -1, 1.5f - m_radius, 2, 10);
+                m_graphic.FillRectangle(new SolidBrush(Color.Black), -1, 1.5f - m_radius, 2, 10);
                 m_graphic.RotateTransform(30);
             }
             //获取当期时间
@@ -41,11 +41,11 @@ namespace Interface
             int minute = DateTime.Now.Minute;
             int hour = DateTime.Now.Hour;
             //画时针
-            Pen pen2 = new Pen(Color.Green, 3);
+            Pen pen2 = new Pen(Color.Black, 3);
             m_graphic.RotateTransform((float)(0.00833f * second + 0.5f * minute + hour * 30));
             m_graphic.DrawLine(pen2, 0, 0, 0, (-1) * (float)(m_radius / 2.4));
             //画分针
-            Pen pen1 = new Pen(Color.Blue, 2);
+            Pen pen1 = new Pen(Color.Black, 2);
             m_graphic.RotateTransform((float)((0.00833f * second + 0.5f * minute + hour * 30) * (-1)));
             m_graphic.RotateTransform((float)(0.1 * second + 6 * minute));
             m_graphic.DrawLine(pen1, 0, 0, 0, (-1) * (float)(m_radius / 1.5));
