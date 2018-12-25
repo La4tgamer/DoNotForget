@@ -59,10 +59,10 @@ namespace diyControl
                 panelday[d].MouseClick += PanelMonth_MouseClick;
                 panelday[d].Terms = dt.terms(new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, d + 1));
                 if (DateTime.Now.Day == d + 1 && datetime.Year == DateTime.Now.Year&& datetime.Month == DateTime.Now.Month)
-                    panelday[d].BackColor = Color.Red;
+                    panelday[d].BackColor = Color.FromArgb(252, 157, 154);
                 if (datetime.Day == d + 1)
                 {
-                    panelday[d].BackColor = Color.Green;
+                    panelday[d].BackColor = Color.FromArgb(101, 147, 74);
                 }
 
             }
@@ -90,7 +90,7 @@ namespace diyControl
         {
             
             PanelDay pd = (PanelDay)sender;
-            pd.BackColor = System.Drawing.Color.Green;
+            pd.BackColor = Color.FromArgb(101, 147, 74);
             datetime = new DateTime(dateTimePicker.Value.Year, dateTimePicker.Value.Month, Convert.ToInt32(pd.Solar));
             dateTimePicker.Value = datetime;
             DisplayPD(datetime);
@@ -102,10 +102,10 @@ namespace diyControl
         {
             PanelDay pd = (PanelDay)sender;
             if (DateTime.Now.Day == pd.date() && datetime.Year == DateTime.Now.Year && datetime.Month == DateTime.Now.Month)
-                pd.BackColor = Color.Red;
+                pd.BackColor = Color.FromArgb(252, 157, 154);
             else if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
             {
-                pd.BackColor = System.Drawing.Color.DarkSeaGreen;
+                pd.BackColor = Color.FromArgb(131, 175, 155);
             }
         }
 
@@ -113,7 +113,7 @@ namespace diyControl
         {
             PanelDay pd = (PanelDay)sender;
             if (DateTime.Now.Day == pd.date() && datetime.Year == DateTime.Now.Year && datetime.Month == DateTime.Now.Month)
-                pd.BackColor = Color.Red;
+                pd.BackColor = Color.FromArgb(252,157,154);
             else if (dateTimePicker.Value.Year != datetime.Year || dateTimePicker.Value.Month != datetime.Month || dateTimePicker.Value.Day != Convert.ToInt32(pd.Solar))
             {
                 pd.BackColor = this.BackColor;
