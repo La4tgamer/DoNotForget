@@ -88,6 +88,7 @@ namespace Interface {
             panelMonth1.Datetime = DateTime.Now;//初始化时间
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
+            lbWeather.Text = Weather.GetWeather();
         }
         //自定义控件回调函数
         private void panelMonth1_ValueChanged(object sender, EventArgs e) {
@@ -173,6 +174,8 @@ namespace Interface {
                     MessageBox.Show(detail + "!!");
                     bgmusic.SetPause();
                 }
+
+                mForm.UpdateDisplayTodaySchedules(DateTime.Now);
             }
         }
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CalendarSystem
 {
-    class Weather
+    public class Weather
     {
 
 
@@ -31,8 +31,9 @@ namespace CalendarSystem
             Regex regex2 = new Regex("value=\".*\"");
             Match b = regex2.Match(a.Value);
             weather = b.Value;
-            weather = weather.Remove(0, 7);
+            weather = weather.Remove(0, weather.IndexOf('周') + 4);
             weather = weather.Remove(weather.IndexOf('"'), 1);
+            weather = weather.Replace("  ", "\n");
             return weather;
         }
 

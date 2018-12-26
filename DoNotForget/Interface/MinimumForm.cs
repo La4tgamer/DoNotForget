@@ -32,7 +32,7 @@ namespace Interface
         public const int HTCAPTION = 0x0002;
 
         //刷新显示的今日日程
-        private void UpdateDisplayTodaySchedules(DateTime dateTime)
+        public void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
             listBox1.Items.Clear();      //首先清空所有日程
             MainForm.scheduleService.UpdateTodaySchedule(dateTime);
@@ -40,7 +40,7 @@ namespace Interface
             {
                 listBox1.Items.Add(schedule.ToStringShort());
             }
-            mainForm.UpdateDisplayTodaySchedules(dateTime);         //同步主界面中的今日日程
+            mainForm.UpdateDisplayTodaySchedules(dateTime);  //同步主界面中的今日日程
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -113,6 +113,21 @@ namespace Interface
         //可见性变化是刷新
         private void MinimumForm_VisibleChanged(object sender, EventArgs e) {
             UpdateDisplayTodaySchedules(DateTime.Now);
+        }
+
+        private void listBox1_DrawItem(object sender, DrawItemEventArgs e) {
+            if (e.Index >= 0) {
+                e.DrawBackground();
+                Brush mybsh = Brushes.Black;
+                // 判断是什么类型的标签
+                if (MainForm.scheduleService.todaySchedules[e.Index].isOutDate) {
+                    mybsh = Brushes.Red;
+                }
+                // 焦点框
+                e.DrawFocusRectangle();
+                //文本 
+                e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, mybsh, e.Bounds, StringFormat.GenericDefault);
+            }
         }
     }
 }
