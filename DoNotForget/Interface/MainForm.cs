@@ -21,17 +21,17 @@ namespace Interface {
         //刷新显示的今日日程
         public void UpdateDisplayTodaySchedules(DateTime dateTime)
         {
-            clbTodaySchedules.Items.Clear();      //首先清空所有日程
+            lbTodaySchedules.Items.Clear();      //首先清空所有日程
             scheduleService.UpdateTodaySchedule(dateTime);
             foreach (Schedule schedule in scheduleService.todaySchedules)
             {
-                clbTodaySchedules.Items.Add(schedule.ToStringShort());
+                lbTodaySchedules.Items.Add(schedule.ToStringShort());
             }
         }
         public MainForm() {
             InitializeComponent();
-            UpdateDisplayTodaySchedules(DateTime.Now);
             mForm = new MinimumForm(this);//创建小窗口但不显示
+            UpdateDisplayTodaySchedules(DateTime.Now);
         }
         //添加日程的按钮响应时间
         private void btnAdd_Click(object sender, EventArgs e)
@@ -132,22 +132,24 @@ namespace Interface {
 
         }
 
-        private void clbTodaySchedules_SelectedIndexChanged(object sender, EventArgs e) {
-            int index = clbTodaySchedules.SelectedIndex;
-            
-            if (index >= 0) {
+        private void lbTodaySchedules_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = lbTodaySchedules.SelectedIndex;
+
+            if (index >= 0)
+            {
                 MyClock.flag = true;
                 paintTime = scheduleService.todaySchedules[index].Time;
             }
-            else {
+            else
+            {
                 MyClock.flag = false;
             }
         }
-
-        private void clbTodaySchedules_MouseLeave(object sender, EventArgs e) {
-            clbTodaySchedules.SelectedIndex = -1;
+        private void lbTodaySchedules_MouseLeave(object sender, EventArgs e)
+        {
+            lbTodaySchedules.SelectedIndex = -1;
         }
-
         //最小化按钮
         private void buttonMinimum_Click(object sender, EventArgs e)
         {
@@ -229,5 +231,23 @@ namespace Interface {
         private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             Application.Exit();
         }
+
+        private void lbTodaySchedules_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index >= 0)
+            {
+                e.DrawBackground();
+                Brush mybsh = Brushes.Black;
+                // 判断是什么类型的标签
+                if (scheduleService.todaySchedules[e.Index].isOutDate)
+                {
+                    mybsh = Brushes.Red;
+                }
+                // 焦点框
+                e.DrawFocusRectangle();
+                //文本 
+                e.Graphics.DrawString(lbTodaySchedules.Items[e.Index].ToString(), e.Font, mybsh, e.Bounds, StringFormat.GenericDefault);
+            }
+        }    
     }
 }

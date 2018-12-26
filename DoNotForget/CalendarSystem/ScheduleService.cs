@@ -68,6 +68,10 @@ namespace CalendarSystem {
         }
         //修改日程
         public bool ModifySchedule(int index, Schedule schedule) {
+            if (index < 0)
+            {
+                return false;
+            }
             allSchedules[index] = schedule;
             return true;
         }

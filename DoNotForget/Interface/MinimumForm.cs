@@ -129,5 +129,10 @@ namespace Interface
                 e.Graphics.DrawString(listBox1.Items[e.Index].ToString(), e.Font, mybsh, e.Bounds, StringFormat.GenericDefault);
             }
         }
+
+        private void listBox1_MouseLeave(object sender, EventArgs e)
+        {
+            listBox1.SelectedIndex = -1;
+        }
     }
 }

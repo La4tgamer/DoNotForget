@@ -66,8 +66,14 @@ namespace Interface
                 details += rtbModifyDetails.Lines[i];
             }
             Schedule schedule = new Schedule(dtpModifyRemindTime.Value, cycle, details, cbModifyRemindMusic.SelectedIndex);
-            MainForm.scheduleService.ModifySchedule(lbAllSchedules.SelectedIndex, schedule);
-            MessageBox.Show("日程修改成功");
+            if (MainForm.scheduleService.ModifySchedule(lbAllSchedules.SelectedIndex, schedule))
+            {
+                MessageBox.Show("日程修改成功");
+            }
+            else
+            {
+                MessageBox.Show("未选择要修改的日程");
+            }
             Dispose();
         }
 

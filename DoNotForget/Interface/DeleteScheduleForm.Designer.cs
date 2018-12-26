@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteScheduleForm));
             this.clbAllSchedules = new System.Windows.Forms.CheckedListBox();
             this.btnYes = new System.Windows.Forms.Button();
             this.btnSelectNone = new System.Windows.Forms.Button();
             this.btnSelectAll = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // clbAllSchedules
             // 
+            this.clbAllSchedules.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.clbAllSchedules.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.clbAllSchedules.FormattingEnabled = true;
+            this.clbAllSchedules.HorizontalExtent = 1000;
             this.clbAllSchedules.HorizontalScrollbar = true;
             this.clbAllSchedules.Location = new System.Drawing.Point(55, 0);
             this.clbAllSchedules.Name = "clbAllSchedules";
@@ -105,6 +105,5 @@
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnSelectNone;
         private System.Windows.Forms.Button btnSelectAll;
-        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
