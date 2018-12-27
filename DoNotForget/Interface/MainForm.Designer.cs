@@ -26,6 +26,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbTodaySchedules = new System.Windows.Forms.ListBox();
             this.tlpButton = new System.Windows.Forms.TableLayoutPanel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
@@ -42,7 +43,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.remindTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lbWeather = new System.Windows.Forms.Label();
-            this.lbTodaySchedules = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.tlpButton.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -53,10 +53,27 @@
             this.panel1.Controls.Add(this.lbTodaySchedules);
             this.panel1.Controls.Add(this.tlpButton);
             this.panel1.Controls.Add(this.LtodaySchedules);
-            this.panel1.Location = new System.Drawing.Point(508, 194);
+            this.panel1.Location = new System.Drawing.Point(677, 242);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 377);
+            this.panel1.Size = new System.Drawing.Size(389, 471);
             this.panel1.TabIndex = 0;
+            // 
+            // lbTodaySchedules
+            // 
+            this.lbTodaySchedules.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.lbTodaySchedules.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbTodaySchedules.FormattingEnabled = true;
+            this.lbTodaySchedules.HorizontalScrollbar = true;
+            this.lbTodaySchedules.ItemHeight = 20;
+            this.lbTodaySchedules.Location = new System.Drawing.Point(0, 40);
+            this.lbTodaySchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbTodaySchedules.Name = "lbTodaySchedules";
+            this.lbTodaySchedules.Size = new System.Drawing.Size(387, 164);
+            this.lbTodaySchedules.TabIndex = 4;
+            this.lbTodaySchedules.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbTodaySchedules_DrawItem);
+            this.lbTodaySchedules.SelectedIndexChanged += new System.EventHandler(this.lbTodaySchedules_SelectedIndexChanged);
+            this.lbTodaySchedules.MouseLeave += new System.EventHandler(this.lbTodaySchedules_MouseLeave);
             // 
             // tlpButton
             // 
@@ -70,13 +87,14 @@
             this.tlpButton.Controls.Add(this.btnQueryAllSchedules, 0, 0);
             this.tlpButton.Controls.Add(this.btnAdd, 0, 1);
             this.tlpButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlpButton.Location = new System.Drawing.Point(0, 266);
+            this.tlpButton.Location = new System.Drawing.Point(0, 332);
+            this.tlpButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpButton.Name = "tlpButton";
             this.tlpButton.RowCount = 2;
             this.tlpButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpButton.Size = new System.Drawing.Size(292, 111);
+            this.tlpButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tlpButton.Size = new System.Drawing.Size(389, 139);
             this.tlpButton.TabIndex = 3;
             // 
             // btnDelete
@@ -88,9 +106,10 @@
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDelete.Location = new System.Drawing.Point(197, 58);
+            this.btnDelete.Location = new System.Drawing.Point(262, 73);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(92, 50);
+            this.btnDelete.Size = new System.Drawing.Size(123, 62);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "删除日程";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -105,9 +124,10 @@
             this.btnModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModify.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnModify.Location = new System.Drawing.Point(100, 58);
+            this.btnModify.Location = new System.Drawing.Point(133, 73);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(91, 50);
+            this.btnModify.Size = new System.Drawing.Size(121, 62);
             this.btnModify.TabIndex = 5;
             this.btnModify.Text = "修改日程";
             this.btnModify.UseVisualStyleBackColor = false;
@@ -123,10 +143,10 @@
             this.btnQueryAllSchedules.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
             this.btnQueryAllSchedules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQueryAllSchedules.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnQueryAllSchedules.Location = new System.Drawing.Point(3, 0);
-            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.btnQueryAllSchedules.Location = new System.Drawing.Point(4, 0);
+            this.btnQueryAllSchedules.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.btnQueryAllSchedules.Name = "btnQueryAllSchedules";
-            this.btnQueryAllSchedules.Size = new System.Drawing.Size(286, 55);
+            this.btnQueryAllSchedules.Size = new System.Drawing.Size(381, 69);
             this.btnQueryAllSchedules.TabIndex = 3;
             this.btnQueryAllSchedules.Text = "查看所有日程";
             this.btnQueryAllSchedules.UseVisualStyleBackColor = false;
@@ -141,9 +161,10 @@
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnAdd.Location = new System.Drawing.Point(3, 58);
+            this.btnAdd.Location = new System.Drawing.Point(4, 73);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(91, 50);
+            this.btnAdd.Size = new System.Drawing.Size(121, 62);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "添加日程";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -155,8 +176,9 @@
             this.LtodaySchedules.Font = new System.Drawing.Font("楷体", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LtodaySchedules.ForeColor = System.Drawing.Color.Black;
             this.LtodaySchedules.Location = new System.Drawing.Point(0, 0);
+            this.LtodaySchedules.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LtodaySchedules.Name = "LtodaySchedules";
-            this.LtodaySchedules.Size = new System.Drawing.Size(292, 29);
+            this.LtodaySchedules.Size = new System.Drawing.Size(389, 36);
             this.LtodaySchedules.TabIndex = 1;
             this.LtodaySchedules.Text = "今日日程";
             this.LtodaySchedules.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,10 +187,10 @@
             // 
             this.buttonMinimum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimum.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.buttonMinimum.Location = new System.Drawing.Point(697, 9);
-            this.buttonMinimum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonMinimum.Location = new System.Drawing.Point(929, 11);
+            this.buttonMinimum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMinimum.Name = "buttonMinimum";
-            this.buttonMinimum.Size = new System.Drawing.Size(92, 27);
+            this.buttonMinimum.Size = new System.Drawing.Size(123, 34);
             this.buttonMinimum.TabIndex = 2;
             this.buttonMinimum.Text = "小窗显示";
             this.buttonMinimum.UseVisualStyleBackColor = true;
@@ -185,9 +207,9 @@
             this.panelMonth1.Datetime = new System.DateTime(2018, 12, 20, 22, 49, 26, 518);
             this.panelMonth1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMonth1.Location = new System.Drawing.Point(0, 0);
-            this.panelMonth1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.panelMonth1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMonth1.Name = "panelMonth1";
-            this.panelMonth1.Size = new System.Drawing.Size(503, 682);
+            this.panelMonth1.Size = new System.Drawing.Size(671, 852);
             this.panelMonth1.TabIndex = 1;
             // 
             // notifyIcon1
@@ -204,12 +226,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(109, 28);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(108, 24);
             this.toolStripMenuItem1.Text = "关闭";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -221,40 +243,25 @@
             // lbWeather
             // 
             this.lbWeather.AutoSize = true;
-            this.lbWeather.Font = new System.Drawing.Font("楷体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbWeather.Location = new System.Drawing.Point(508, 17);
-            this.lbWeather.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbWeather.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbWeather.Location = new System.Drawing.Point(677, 21);
             this.lbWeather.Name = "lbWeather";
-            this.lbWeather.Size = new System.Drawing.Size(49, 19);
+            this.lbWeather.Size = new System.Drawing.Size(49, 20);
             this.lbWeather.TabIndex = 3;
             this.lbWeather.Text = "天气";
             // 
-            // lbTodaySchedules
-            // 
-            this.lbTodaySchedules.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.lbTodaySchedules.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbTodaySchedules.FormattingEnabled = true;
-            this.lbTodaySchedules.HorizontalScrollbar = true;
-            this.lbTodaySchedules.ItemHeight = 20;
-            this.lbTodaySchedules.Location = new System.Drawing.Point(0, 32);
-            this.lbTodaySchedules.Name = "lbTodaySchedules";
-            this.lbTodaySchedules.Size = new System.Drawing.Size(291, 144);
-            this.lbTodaySchedules.TabIndex = 4;
-            this.lbTodaySchedules.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbTodaySchedules_DrawItem);
-            this.lbTodaySchedules.SelectedIndexChanged += new System.EventHandler(this.lbTodaySchedules_SelectedIndexChanged);
-            this.lbTodaySchedules.MouseLeave += new System.EventHandler(this.lbTodaySchedules_MouseLeave);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 682);
+            this.ClientSize = new System.Drawing.Size(1067, 852);
             this.Controls.Add(this.lbWeather);
             this.Controls.Add(this.buttonMinimum);
             this.Controls.Add(this.panelMonth1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Don\'t Forgrt(万年历记事软件)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

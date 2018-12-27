@@ -173,6 +173,7 @@ namespace Interface {
                 else {
                     //非最小化弹窗
                     bgmusic.SetMusic(musicIndex);
+                    bgmusic.PlayMusic();
                     MessageBox.Show(detail + "!!");
                     bgmusic.SetPause();
                 }
@@ -231,7 +232,7 @@ namespace Interface {
         private void toolStripMenuItem1_Click(object sender, EventArgs e) {
             Application.Exit();
         }
-
+        //画listbox
         private void lbTodaySchedules_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index >= 0)
