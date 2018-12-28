@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CalendarSystem;
 using System.Globalization;
+using System.Drawing.Text;
 
 namespace Interface {
     public partial class MainForm : Form {
@@ -88,7 +89,13 @@ namespace Interface {
             panelMonth1.Datetime = DateTime.Now;//初始化时间
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
-            lbWeather.Text = Weather.GetWeather();
+            lbWeather.Text = Weather.GetWeather(); 
+
+            PrivateFontCollection font = new PrivateFontCollection();
+            font.AddFontFile(Environment.CurrentDirectory + @"\1.ttf");
+            Font myFont = new Font(font.Families[0], 16);
+            lbWeather.Font = myFont;
+
         }
         //自定义控件回调函数
         private void panelMonth1_ValueChanged(object sender, EventArgs e) {

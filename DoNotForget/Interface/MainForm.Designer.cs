@@ -244,7 +244,7 @@
             // 
             this.lbWeather.AutoSize = true;
             this.lbWeather.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbWeather.Location = new System.Drawing.Point(677, 21);
+            this.lbWeather.Location = new System.Drawing.Point(639, 18);
             this.lbWeather.Name = "lbWeather";
             this.lbWeather.Size = new System.Drawing.Size(49, 20);
             this.lbWeather.TabIndex = 3;
