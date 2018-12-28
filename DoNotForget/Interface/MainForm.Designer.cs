@@ -54,7 +54,7 @@
             this.panel1.Controls.Add(this.tlpButton);
             this.panel1.Controls.Add(this.LtodaySchedules);
             this.panel1.Location = new System.Drawing.Point(677, 242);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(389, 471);
             this.panel1.TabIndex = 0;
@@ -67,7 +67,7 @@
             this.lbTodaySchedules.HorizontalScrollbar = true;
             this.lbTodaySchedules.ItemHeight = 20;
             this.lbTodaySchedules.Location = new System.Drawing.Point(0, 40);
-            this.lbTodaySchedules.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbTodaySchedules.Margin = new System.Windows.Forms.Padding(4);
             this.lbTodaySchedules.Name = "lbTodaySchedules";
             this.lbTodaySchedules.Size = new System.Drawing.Size(387, 164);
             this.lbTodaySchedules.TabIndex = 4;
@@ -88,7 +88,7 @@
             this.tlpButton.Controls.Add(this.btnAdd, 0, 1);
             this.tlpButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpButton.Location = new System.Drawing.Point(0, 332);
-            this.tlpButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tlpButton.Margin = new System.Windows.Forms.Padding(4);
             this.tlpButton.Name = "tlpButton";
             this.tlpButton.RowCount = 2;
             this.tlpButton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -107,7 +107,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDelete.Location = new System.Drawing.Point(262, 73);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(123, 62);
             this.btnDelete.TabIndex = 4;
@@ -125,7 +125,7 @@
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModify.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnModify.Location = new System.Drawing.Point(133, 73);
-            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(121, 62);
             this.btnModify.TabIndex = 5;
@@ -162,7 +162,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAdd.Location = new System.Drawing.Point(4, 73);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(121, 62);
             this.btnAdd.TabIndex = 2;
@@ -261,7 +261,7 @@
             this.Controls.Add(this.panelMonth1);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Don\'t Forgrt(万年历记事软件)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

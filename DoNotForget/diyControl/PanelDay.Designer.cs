@@ -37,11 +37,11 @@
             // 
             this.labelSolar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelSolar.AutoSize = true;
-            this.labelSolar.Font = new System.Drawing.Font("Calibri", 31.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSolar.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.labelSolar.Font = new System.Drawing.Font("Ink Free", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSolar.ForeColor = System.Drawing.Color.Black;
             this.labelSolar.Location = new System.Drawing.Point(1, 0);
             this.labelSolar.Name = "labelSolar";
-            this.labelSolar.Size = new System.Drawing.Size(55, 64);
+            this.labelSolar.Size = new System.Drawing.Size(46, 58);
             this.labelSolar.TabIndex = 0;
             this.labelSolar.Text = "1";
             this.labelSolar.Click += new System.EventHandler(this.labelSolar_Click);

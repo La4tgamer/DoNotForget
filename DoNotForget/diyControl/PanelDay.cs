@@ -16,8 +16,8 @@ namespace diyControl
         {
             InitializeComponent();
             //this.labelSolar.Enabled = false;
-            //this.labelLunar.Enabled = false;
-            //this.labelTerms.Enabled = false;
+            this.labelLunar.Enabled = false;
+            this.labelTerms.Enabled = false;
         }
 
         private string strSolar = "";
