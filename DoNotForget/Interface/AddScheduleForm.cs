@@ -13,6 +13,7 @@ namespace Interface
 {
     public partial class AddScheduleForm : Form
     {
+        public string musicPath;//音乐路径
         private delegate void settime();
         public AddScheduleForm()
         {
@@ -68,7 +69,14 @@ namespace Interface
             DateTime  dateTime= dtpSetRemindTime.Value;
             DateTime remindTime = new DateTime(dateTime.Year, dateTime.Month,
                         dateTime.Day, dateTime.Hour, dateTime.Minute, 0);
-            Schedule schedule = new Schedule(remindTime, cycle, details, cbRemindMusic.SelectedIndex);
+            Schedule schedule;
+            if (cbRemindMusic.SelectedIndex == 4) {
+                schedule = new Schedule(remindTime, cycle, details, cbRemindMusic.SelectedIndex);
+                schedule.MusicPath = musicPath;
+            }
+            else {
+                schedule = new Schedule(remindTime, cycle, details, cbRemindMusic.SelectedIndex);
+            }
             MainForm.scheduleService.AddSchedule(schedule);
             MessageBox.Show("日程添加成功");
             Dispose();
@@ -83,5 +91,13 @@ namespace Interface
 
         private void rbOnce_CheckedChanged(object sender, EventArgs e){}
         private void LSetRemindTime_Click(object sender, EventArgs e){}
+        //选择自定歌曲之后
+        private void cbRemindMusic_SelectedIndexChanged(object sender, EventArgs e) {
+            if (this.cbRemindMusic.SelectedIndex == 4) {
+                OpenFileDialog oFDialog = new OpenFileDialog();
+                oFDialog.ShowDialog();
+                musicPath = oFDialog.FileName;
+            }
+        }
     }
 }

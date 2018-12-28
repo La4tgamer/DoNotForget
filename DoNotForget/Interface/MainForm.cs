@@ -163,6 +163,7 @@ namespace Interface {
             if (scheduleService.remindSchedules.Count != 0) {
                 string detail = scheduleService.remindSchedules[0].Details;
                 int musicIndex = scheduleService.remindSchedules[0].MusicIndex;//音乐
+                string musicPath = scheduleService.remindSchedules[0].MusicPath;//自定音乐路径
                 scheduleService.remindSchedules.Clear();//全部删除
 
                 //最小化时气球提示
@@ -172,9 +173,10 @@ namespace Interface {
                 }
                 else {
                     //非最小化弹窗
-                    bgmusic.SetMusic(musicIndex);
+                    bgmusic.SetMusic(musicPath);
+                    bgmusic.SelectMusic(musicIndex);
                     bgmusic.PlayMusic();
-                    MessageBox.Show(detail + "!!");
+                    MessageBox.Show(detail + "!!", "有一个日程时间到啦~");
                     bgmusic.SetPause();
                 }
 

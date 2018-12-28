@@ -11,29 +11,39 @@ namespace CalendarSystem
     public class Music
     {
         SoundPlayer p = new SoundPlayer();
+        public string MusicPath { get; set; }
         public Music() { }
 
 
+        public void SetMusic(string musicPath) {
+            MusicPath = musicPath;
+        }
 
-
-        public void SetMusic(int index) {
-            
-            switch (index) {
-                case 1:
-                    p.SoundLocation = @".\音乐1.wav";
-                    p.Load();
-                    break;
-                case 2:
-                    p.SoundLocation = @".\音乐2.wav";
-                    p.Load();
-                    break;
-                case 3:
-                    p.SoundLocation = @".\音乐3.wav";
-                    p.Load();
-                    break;
-                
-                default:
-                    return;
+        public void SelectMusic(int index) {
+            try {
+                switch (index) {
+                    case 1:
+                        p.SoundLocation = @".\音乐1.wav";
+                        p.Load();
+                        break;
+                    case 2:
+                        p.SoundLocation = @".\音乐2.wav";
+                        p.Load();
+                        break;
+                    case 3:
+                        p.SoundLocation = @".\音乐3.wav";
+                        p.Load();
+                        break;
+                    case 4:
+                        p.SoundLocation = MusicPath;
+                        p.Load();
+                        break;
+                    default:
+                        return;
+                }
+            }
+            catch {
+                throw ;
             }
             //p.PlayLooping();
 
@@ -41,6 +51,7 @@ namespace CalendarSystem
         }
 
         public void PlayMusic() {
+            
             p.PlayLooping();
         }
 
