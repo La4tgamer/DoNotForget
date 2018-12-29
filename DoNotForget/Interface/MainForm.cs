@@ -95,7 +95,6 @@ namespace Interface {
             font.AddFontFile(Environment.CurrentDirectory + @"\1.ttf");
             Font myFont = new Font(font.Families[0], 16);
             lbWeather.Font = myFont;
-
         }
         //自定义控件回调函数
         private void panelMonth1_ValueChanged(object sender, EventArgs e) {

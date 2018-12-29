@@ -80,11 +80,12 @@
             this.buttonMaximum.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMaximum.BackgroundImage")));
             this.buttonMaximum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonMaximum.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.buttonMaximum.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonMaximum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMaximum.Location = new System.Drawing.Point(33, 2);
+            this.buttonMaximum.Location = new System.Drawing.Point(32, 5);
             this.buttonMaximum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMaximum.Name = "buttonMaximum";
-            this.buttonMaximum.Size = new System.Drawing.Size(30, 30);
+            this.buttonMaximum.Size = new System.Drawing.Size(40, 30);
             this.buttonMaximum.TabIndex = 6;
             this.buttonMaximum.UseVisualStyleBackColor = false;
             this.buttonMaximum.Click += new System.EventHandler(this.buttonMaximum_Click);
@@ -95,8 +96,7 @@
             this.buttonDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDelete.BackgroundImage")));
             this.buttonDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(74)))));
-            this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
+            this.buttonDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Location = new System.Drawing.Point(363, 146);
             this.buttonDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -112,8 +112,7 @@
             this.buttonModify.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonModify.BackgroundImage")));
             this.buttonModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonModify.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonModify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(74)))));
-            this.buttonModify.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
+            this.buttonModify.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModify.Location = new System.Drawing.Point(363, 189);
             this.buttonModify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -129,8 +128,7 @@
             this.buttonAdd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAdd.BackgroundImage")));
             this.buttonAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAdd.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(74)))));
-            this.buttonAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
+            this.buttonAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Location = new System.Drawing.Point(363, 88);
             this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -146,8 +144,7 @@
             this.buttonAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAll.BackgroundImage")));
             this.buttonAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonAll.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.buttonAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(74)))));
-            this.buttonAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
+            this.buttonAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.buttonAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAll.Location = new System.Drawing.Point(327, 23);
             this.buttonAll.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

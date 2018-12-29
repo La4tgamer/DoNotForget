@@ -43,7 +43,8 @@ namespace CalendarSystem
                 }
             }
             catch {
-                throw ;
+                p.SoundLocation = @".\音乐1.wav";
+                p.Load();
             }
             //p.PlayLooping();
 

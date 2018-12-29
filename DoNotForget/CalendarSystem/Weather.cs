@@ -15,11 +15,17 @@ namespace CalendarSystem
 
         public static string GetWeather()
         {
-            WebClient webClient = new WebClient();
-            webClient.Encoding = Encoding.UTF8;
-            string html = webClient.DownloadString("http://www.weather.com.cn/weather1d/101200101.shtml");
-            string weather = Check(html);
-            return weather;
+            try {
+                WebClient webClient = new WebClient();
+                webClient.Encoding = Encoding.UTF8;
+                string html = webClient.DownloadString("http://www.weather.com.cn/weather1d/101200101.shtml");
+                string weather = Check(html);
+                return weather;
+            }
+            catch {
+                return "网络连接错误";
+            }
+            
         }
 
         public static string Check(string s)

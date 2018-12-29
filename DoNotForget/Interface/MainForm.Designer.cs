@@ -185,6 +185,8 @@
             // 
             // buttonMinimum
             // 
+            this.buttonMinimum.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(74)))));
+            this.buttonMinimum.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(157)))), ((int)(((byte)(154)))));
             this.buttonMinimum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMinimum.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonMinimum.Location = new System.Drawing.Point(929, 11);
@@ -243,10 +245,10 @@
             // lbWeather
             // 
             this.lbWeather.AutoSize = true;
-            this.lbWeather.Font = new System.Drawing.Font("楷体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbWeather.Location = new System.Drawing.Point(639, 18);
+            this.lbWeather.Font = new System.Drawing.Font("楷体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbWeather.Location = new System.Drawing.Point(639, 9);
             this.lbWeather.Name = "lbWeather";
-            this.lbWeather.Size = new System.Drawing.Size(49, 20);
+            this.lbWeather.Size = new System.Drawing.Size(64, 25);
             this.lbWeather.TabIndex = 3;
             this.lbWeather.Text = "天气";
             // 
