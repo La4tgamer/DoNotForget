@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CalendarSystem;
 using System.Globalization;
 using System.Drawing.Text;
+using System.Threading;
 
 namespace Interface {
     public partial class MainForm : Form {
@@ -89,12 +90,27 @@ namespace Interface {
             panelMonth1.Datetime = DateTime.Now;//初始化时间
             LoadPaint();
             panelMonth1.PMEvent += new EventHandler(panelMonth1_ValueChanged);//注册自定义控件
-            lbWeather.Text = Weather.GetWeather(); 
+            //lbWeather.Text = Weather.GetWeather(); 
 
-            PrivateFontCollection font = new PrivateFontCollection();
-            font.AddFontFile(Environment.CurrentDirectory + @"\1.ttf");
-            Font myFont = new Font(font.Families[0], 16);
-            lbWeather.Font = myFont;
+            //PrivateFontCollection font = new PrivateFontCollection();
+            //font.AddFontFile(Environment.CurrentDirectory + @"\1.ttf");
+            //Font myFont = new Font(font.Families[0], 16);
+            //lbWeather.Font = myFont;
+            //多线程爬天气
+            Control.CheckForIllegalCrossThreadCalls = false;//多线程
+            Thread thread = new Thread(SetWeather);
+            thread.IsBackground = true;
+            thread.Start();
+        }
+        //爬天气
+        private void SetWeather() {
+            string weather = Weather.GetWeather();
+            //五秒钟刷新一次，直到找到天气为止
+            while (weather == "网络连接错误") {
+                Thread.Sleep(5000);
+                weather = Weather.GetWeather();
+            }
+            lbWeather.Text = weather;
         }
         //自定义控件回调函数
         private void panelMonth1_ValueChanged(object sender, EventArgs e) {
@@ -118,7 +134,7 @@ namespace Interface {
             this.SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 
-            MyClock.m_timer = new Timer();
+            MyClock.m_timer = new System.Windows.Forms.Timer();
             MyClock.m_timer.Interval = 1000;
             MyClock.m_timer.Enabled = true;
             MyClock.m_timer.Tick += new EventHandler(timer1_Tick);

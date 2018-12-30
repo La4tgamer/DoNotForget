@@ -69,7 +69,7 @@
             this.lbTodaySchedules.Location = new System.Drawing.Point(0, 40);
             this.lbTodaySchedules.Margin = new System.Windows.Forms.Padding(4);
             this.lbTodaySchedules.Name = "lbTodaySchedules";
-            this.lbTodaySchedules.Size = new System.Drawing.Size(387, 164);
+            this.lbTodaySchedules.Size = new System.Drawing.Size(387, 244);
             this.lbTodaySchedules.TabIndex = 4;
             this.lbTodaySchedules.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbTodaySchedules_DrawItem);
             this.lbTodaySchedules.SelectedIndexChanged += new System.EventHandler(this.lbTodaySchedules_SelectedIndexChanged);
